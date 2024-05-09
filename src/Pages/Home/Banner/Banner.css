@@ -1,0 +1,26 @@
+.slide {
+  color: rgb(223, 229, 203);
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: 900;
+  font-size: xx-large;
+}
+
+.slide1 {
+  background-image: url("../../../assets/images/slide1.jpg");
+}
+.slide2 {
+  background-image: url("../../../assets/images/slide2.jpg");
+}
+.slide3 {
+  background-image: url("../../../assets/images/slide3.jpg");
+}
+.slide4 {
+  background-image: url("../../../assets/images/slide4.jpg");
+}

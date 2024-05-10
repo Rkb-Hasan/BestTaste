@@ -1,21 +1,29 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import TopFood from "./TopFood";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 const TopFoods = () => {
-  // const { user } = useContext(AuthContext);
+  const { loading } = useContext(AuthContext);
   const [topFoods, setTopFoods] = useState([]);
 
   useEffect(() => {
     getData();
   }, []);
-  console.log(topFoods);
+  // console.log(topFoods);
 
   const getData = async () => {
     const { data } = await axios(`${import.meta.env.VITE_API_URL}/top-foods`);
     setTopFoods(data);
   };
 
+  if (loading)
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen">
+        {" "}
+        <span className="loading loading-spinner loading-lg "></span>
+      </div>
+    );
   return (
     <div>
       <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center">

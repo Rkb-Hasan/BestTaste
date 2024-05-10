@@ -18,6 +18,7 @@ const Register = () => {
     formState: { errors },
     reset,
   } = useForm();
+
   const onSubmit = (data) => {
     const { email, password, name, photo } = data;
 

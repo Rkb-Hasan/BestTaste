@@ -1,9 +1,9 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFood = () => {
   const food = useLoaderData();
   const {
+    _id,
     food_image,
     food_name,
     food_category,
@@ -48,12 +48,14 @@ const SingleFood = () => {
             </p>{" "}
           </div>
           <div className="flex flex-wrap justify-center">
-            <button
-              type="button"
-              className="lg:px-8  px-4 py-2   lg:py-3 lg:m-2 lg:text-lg md:font-bold font-semibold rounded-xl border  bg-violet-900 hover:bg-violet-400 text-gray-100 hover:text-black"
-            >
-              Purchase
-            </button>
+            <Link to={`/purchase/${_id}`}>
+              <button
+                type="button"
+                className="lg:px-8  px-4 py-2   lg:py-3 lg:m-2 lg:text-lg md:font-bold font-semibold rounded-xl border  bg-violet-900 hover:bg-violet-400 text-gray-100 hover:text-black"
+              >
+                Purchase
+              </button>
+            </Link>
           </div>
         </div>
       </div>

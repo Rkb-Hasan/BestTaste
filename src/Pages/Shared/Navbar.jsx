@@ -43,9 +43,6 @@ const Navbar = () => {
       <li>
         <NavLink to="/gallery">Gallery</NavLink>
       </li>
-      <li>
-        <NavLink to="/craft/myArt">My Art&Craft List</NavLink>
-      </li>
     </>
   );
 
@@ -146,24 +143,19 @@ const Navbar = () => {
                   className="dropdown-content  z-[1000] menu p-2 pb-0  bg-green-600 border-2  rounded-box w-52"
                 >
                   <Link to="/addedFoods" className="border-b-2">
-                    <li>
+                    <li className="font-bold p-2  text-black ">
                       {" "}
-                      <a className="font-bold  text-black ">
-                        My added food items
-                      </a>
+                      My added food items
                     </li>
                   </Link>
-                  <Link to="/addFood" className="border-b-2">
-                    <li>
-                      <a className="font-bold  text-black ">Add a food item</a>
+                  <Link to="/add-food" className="border-b-2">
+                    <li className="font-bold p-2  text-black ">
+                      Add a food item
                     </li>
                   </Link>
-                  <Link to="/orderedFoods" className="border-b-2">
-                    <li>
-                      {" "}
-                      <a className="font-bold  text-black ">
-                        My ordered food items
-                      </a>
+                  <Link to="/purchasedFoods" className="border-b-2">
+                    <li className="font-bold  p-2 text-black ">
+                      My ordered food items
                     </li>
                   </Link>
                 </ul>

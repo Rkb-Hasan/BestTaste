@@ -31,13 +31,31 @@ const Banner = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <Slide image={bg1} text={"etxt text text text"}></Slide>
+          <Slide
+            image={bg1}
+            description={
+              "asdlkjhasflchsdalcfjksdhljvhsdlkjvahdfuiashvckjnudiswvfhsdvjk"
+            }
+            text={"etxt text text text"}
+          ></Slide>
         </SwiperSlide>
         <SwiperSlide>
-          <Slide image={bg2} text={"etxt text text text"}></Slide>
+          <Slide
+            image={bg2}
+            description={
+              "asdlkjhasflchsdalcfjksdhljvhsdlkjvahdfuiashvckjnudiswvfhsdvjk"
+            }
+            text={"etxt text text text"}
+          ></Slide>
         </SwiperSlide>
         <SwiperSlide>
-          <Slide image={bg3} text={"etxt text text text"}></Slide>
+          <Slide
+            image={bg3}
+            description={
+              "asdlkjhasflchsdalcfjksdhljvhsdlkjvahdfuiashvckjnudiswvfhsdvjk"
+            }
+            text={"etxt text text text"}
+          ></Slide>
         </SwiperSlide>
       </Swiper>
     </div>

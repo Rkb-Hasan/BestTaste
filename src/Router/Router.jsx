@@ -4,6 +4,8 @@ import NotFound from "../Pages/ErrorPage/NotFound";
 import Home from "./../Pages/Home/Home";
 import Login from "./../Pages/Login/Login";
 import Register from "./../Pages/Register/Register";
+import AllFoods from "../Pages/AllFoods/AllFoods";
+import SingleFood from "../Pages/SingleFood.jsx/SingleFood";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,16 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "/allFoods",
+        element: <AllFoods></AllFoods>,
+      },
+      {
+        path: "/food/:id",
+        element: <SingleFood></SingleFood>,
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/food/${params.id}`),
       },
       {
         path: "/login",

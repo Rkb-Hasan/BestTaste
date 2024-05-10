@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Slide = ({ image, text }) => {
+const Slide = ({ image, text, description }) => {
   return (
     <div
       className="w-full bg-center bg-cover h-[38rem]"
@@ -13,6 +13,8 @@ const Slide = ({ image, text }) => {
           <h1 className="text-3xl font-semibold text-white lg:text-4xl">
             {text}
           </h1>
+          <br />
+          <p className="text-white">{description}</p>
           <br />
           <Link
             to="/add-job"

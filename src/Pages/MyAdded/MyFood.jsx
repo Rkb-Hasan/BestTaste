@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
 const MyFood = ({ myFood }) => {
-  const { _id, price, foodImage, foodName } = myFood;
+  const { _id, price, food_image, food_name } = myFood;
 
   //   const handleDelete = (_id) => {
   //     Swal.fire({
@@ -44,12 +44,12 @@ const MyFood = ({ myFood }) => {
         <title>My Food</title>
       </Helmet>
       <figure>
-        <img src={foodImage} alt={foodName} className=" lg:h-[280px]" />
+        <img src={food_image} alt={food_name} className=" lg:h-[280px]" />
       </figure>
 
       <div className="p-2 space-y-2">
         <div className="flex gap-1">
-          <h2 className="card-title font-bold">{foodName}</h2>
+          <h2 className="card-title font-bold">{food_name}</h2>
         </div>
         <div className="flex items-center gap-2">
           <p className="text-green-500">

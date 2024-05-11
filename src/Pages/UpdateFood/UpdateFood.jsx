@@ -100,7 +100,7 @@ const UpdateFood = () => {
               <input
                 type="text"
                 name="updatedFoodName"
-                defaultValue={foodName}
+                defaultValue={food_name}
                 required
                 placeholder="Food name.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
@@ -118,7 +118,7 @@ const UpdateFood = () => {
               <input
                 type="text"
                 name="updatedFoodCategoryName"
-                defaultValue={foodCategoryName}
+                defaultValue={food_category}
                 required
                 placeholder="Food Category Name.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
@@ -135,7 +135,7 @@ const UpdateFood = () => {
               <input
                 type="text"
                 name="updatedShortDescription"
-                defaultValue={shortDescription}
+                defaultValue={description}
                 required
                 placeholder="Short Description.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
@@ -154,7 +154,7 @@ const UpdateFood = () => {
               <input
                 type="text"
                 name="updatedFoodImage"
-                defaultValue={foodImage}
+                defaultValue={food_image}
                 required
                 placeholder="Image_URL.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"

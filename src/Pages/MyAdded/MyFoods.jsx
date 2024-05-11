@@ -2,27 +2,30 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import MyFood from "./MyFood";
+import { Link } from "react-router-dom";
 
 const MyFoods = () => {
+  const [loadedFoods, setLoadedFoods] = useState([]);
   const [myFoods, setMyFoods] = useState([]);
-  //   const [myFoods, setmyFoods] = useState([]);
 
   const { user } = useContext(AuthContext);
   //   console.log(user);
 
   // fetch(`https://assignment-10-server-eight-opal.vercel.app/craft/?${queryParams}`)
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/myAdded/${user?.email}`)
+    fetch(`${import.meta.env.VITE_API_URL}/myAdded/${user?.email}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
-        setMyFoods(data);
+        setLoadedFoods(data);
         // console.log(data);
       });
   }, [user?.email]);
 
-  //   useEffect(() => {
-  //     setmyFoods(myFoods);
-  //   }, [myFoods]);
+  useEffect(() => {
+    setMyFoods(loadedFoods);
+  }, [loadedFoods]);
 
   //   const handleYes = () => {
   //     const filtered = myFoods.filter((myFood) => myFood.customization == "yes");
@@ -57,7 +60,25 @@ const MyFoods = () => {
         </details> */}
       </div>
       <div className="divider"></div>
-      <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
+      <div
+        className={`${
+          myFoods.length === 0
+            ? "flex flex-col justify-center items-center"
+            : "grid lg:grid-cols-3  grid-cols-1 gap-4 my-10"
+        }`}
+      >
+        {loadedFoods.length === 0 && (
+          <div className="flex flex-col items-center gap-6 bg-red-200 p-2 border-2 border-red-900 rounded-2xl">
+            <p className=" font-bold text-lg text-red-500">
+              Oppps!! No items are added by you.
+            </p>
+            <Link to="/add-food">
+              <button className="btn btn-primary font-bold border-red-900 bg-red-700 hover:bg-red-800 hover:text-white">
+                Add Items
+              </button>
+            </Link>
+          </div>
+        )}
         {myFoods.map((myFood) => (
           <MyFood key={myFood._id} myFood={myFood}></MyFood>
         ))}

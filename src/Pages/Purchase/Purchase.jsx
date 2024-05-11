@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 
 const Purchase = () => {
   const food = useLoaderData();
-  const { _id, food_name, price, quantity, food_image } = food;
+  const { _id, food_name, price, quantity, food_image, userEmail } = food;
   // console.log(food);
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
@@ -39,7 +39,14 @@ const Purchase = () => {
       buyerEmail,
     };
     // console.log(purchasedFood);
-
+    if (buyerEmail === userEmail) {
+      return Swal.fire({
+        title: "Alert",
+        text: "Sorry! Can not buy self added-items!!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
     // update the purchase and quantity value in the foods collection
     fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
       method: "PATCH",

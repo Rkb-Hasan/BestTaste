@@ -22,7 +22,7 @@ const UpdateFood = () => {
     quantity,
     description,
   } = food;
-  console.log(food);
+  // console.log(food);
   const handleUpdateFood = (e) => {
     e.preventDefault();
 
@@ -45,13 +45,18 @@ const UpdateFood = () => {
       description,
     };
 
-    fetch(`${import.meta.env.VITE_API_URL}/updateFood/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedFood),
-    })
+    fetch(
+      `${import.meta.env.VITE_API_URL}/updateFood/${_id}`,
+
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedFood),
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

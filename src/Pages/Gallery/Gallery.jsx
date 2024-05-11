@@ -53,7 +53,7 @@ const Gallery = () => {
               {/* <figure>
                 <img alt="" src={} />
               </figure> */}
-              <div className="bg-slate-700 opacity-0 group-hover:opacity-95 w-full p-4 h-full flex flex-col justify-center items-center ">
+              <div className="bg-slate-700 opacity-0 group-hover:opacity-95 duration-500 w-full p-4 h-full flex flex-col justify-center items-center ">
                 <div>
                   <div className="bg-slate-950 p-4 border-2 border-slate-300 rounded-2xl">
                     <h3 className="font-bold text-white text-xl text-left">

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import axios from "axios";
 // import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -24,8 +25,12 @@ const Navbar = () => {
   // console.log(user.photoURL);
   const handleLogOut = () => {
     logOut()
-      .then((result) => {
+      .then(async (result) => {
         toast.success("Logged Out successfully!");
+        const { data } = await axios(`${import.meta.env.VITE_API_URL}/logout`, {
+          withCredentials: true,
+        });
+        console.log(data);
       })
       .catch((error) => {
         toast.error(error.message);

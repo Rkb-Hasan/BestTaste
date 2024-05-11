@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
 import "animate.css";
+import axios from "axios";
 
 const Login = () => {
   const { logIn, googleSignIn, githubSignIn, setLoading } =
@@ -21,46 +22,72 @@ const Login = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    const { email, password } = data;
-    logIn(email, password)
-      .then((result) => {
-        toast.success("Logged-In successfully!!");
+  const onSubmit = async (userData) => {
+    const { email, password } = userData;
+    // console.log(userData);
+    try {
+      //User Login
+      const result = await logIn(email, password);
+      console.log(result.user);
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
 
-        // navigate if there is a state
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((error) => {
-        toast.error(error.message.slice(10));
-        setLoading(false);
-      });
+      toast.success("Signin Successful");
+      navigate(location?.state ? location.state : "/");
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+      setLoading(false);
+    }
     reset();
   };
 
-  const handleGoogle = () => {
-    googleSignIn()
-      .then((result) => {
-        toast.success("Logged-In successfully!!");
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((error) => {
-        toast.error(error.message.slice(10));
-        setLoading(false);
-      });
-    reset();
+  const handleGoogle = async () => {
+    try {
+      const result = await googleSignIn();
+      console.log(result.user);
+
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      toast.success("Signin Successful");
+      navigate(location?.state ? location.state : "/");
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
   };
 
-  const handleGithub = () => {
-    githubSignIn()
-      .then((result) => {
-        toast.success("Logged-In successfully!!");
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((error) => {
-        toast.error(error.message.slice(10));
-        setLoading(false);
-      });
-    reset();
+  const handleGithub = async () => {
+    try {
+      const result = await githubSignIn();
+      console.log(result.user);
+
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_API_URL}/jwt`,
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      toast.success("Signin Successful");
+      navigate(location?.state ? location.state : "/");
+    } catch (err) {
+      console.log(err);
+      toast.error(err?.message);
+    }
   };
 
   return (
@@ -99,7 +126,7 @@ const Login = () => {
                 name="password"
                 placeholder="Password"
                 className="input input-bordered"
-                // {...register("password", { required: true })}
+                {...register("password", { required: true })}
               />
               {errors.password && (
                 <span className="text-red-500">This field is required!</span>

@@ -32,7 +32,7 @@ const TopFoods = () => {
       <div className="divider"></div>
       <div className="flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 md:gap-3 gap-2 bg-base-200 p-5 border rounded-2xl my-6">
-          {topFoods.map((top) => (
+          {topFoods.slice(0, 6).map((top) => (
             <TopFood key={top._id} top={top}></TopFood>
           ))}
         </div>

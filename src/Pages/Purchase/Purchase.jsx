@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
 import DatePicker from "react-datepicker";
@@ -10,8 +10,8 @@ import Swal from "sweetalert2";
 
 const Purchase = () => {
   const food = useLoaderData();
-  const { food_name, price, quantity, food_image } = food;
-  console.log(food);
+  const { _id, food_name, price, quantity, food_image } = food;
+  // console.log(food);
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date());
 
@@ -34,13 +34,37 @@ const Purchase = () => {
       foodName,
       foodImage,
       price,
-      quantity,
+      quantity: parseFloat(quantity),
       buyerName,
       buyerEmail,
     };
-    console.log(purchasedFood);
+    // console.log(purchasedFood);
 
-    // send to server
+    // update the purchase and quantity value in the foods collection
+    fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(purchasedFood),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // if (data.insertedId) {
+        //   console.log(data);
+        //   Swal.fire({
+        //     title: "Success!",
+        //     text: "Food Purchased!!",
+        //     icon: "success",
+        //     confirmButtonText: "OK",
+        //   });
+        //   navigate("/");
+        // }
+        console.log(data);
+      });
+
+    // ------------------------
+    // send to purchase collection
     fetch(`${import.meta.env.VITE_API_URL}/purchases`, {
       method: "POST",
       headers: {
@@ -63,8 +87,31 @@ const Purchase = () => {
       });
   };
 
+  useEffect(() => {
+    if (!quantity) {
+      Swal.fire({
+        title: "Oppps!",
+        text: "Sorry! Item is not available!!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+  }, [quantity]);
+
+  // const handleValue = (e) => {
+  //   const val = e.target.value;
+  //   if (val === 30) {
+  //     Swal.fire({
+  //       title: "Opps!",
+  //       text: "Cant buy more!!",
+  //       icon: "error",
+  //       confirmButtonText: "OK",
+  //     });
+  //   }
+  // };
+
   return (
-    <div className="hero   ">
+    <div className="hero">
       <Helmet>
         <title>Purchase</title>
       </Helmet>
@@ -105,11 +152,14 @@ const Purchase = () => {
                 <span className="label-text lg:text-lg">Quantity</span>
               </label>
               <input
+                // onChange={handleValue}
                 required
                 name="quantity"
                 type="number"
                 placeholder="Quantity"
                 defaultValue={quantity}
+                max={quantity}
+                min={0}
                 className="input input-bordered  border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
 
@@ -172,7 +222,10 @@ const Purchase = () => {
             </div>
 
             <div className="form-control mt-6">
-              <button className="btn btn-primary font-bold lg:text-lg">
+              <button
+                disabled={!quantity}
+                className="btn btn-primary font-bold lg:text-lg"
+              >
                 Purchase
               </button>
             </div>

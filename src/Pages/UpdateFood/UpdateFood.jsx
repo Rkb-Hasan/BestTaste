@@ -15,34 +15,34 @@ const UpdateFood = () => {
 
   const {
     _id,
-    foodName,
+    food_name,
     price,
-    foodCategoryName,
-    foodImage,
+    food_category,
+    food_image,
     quantity,
-    shortDescription,
+    description,
   } = food;
   console.log(food);
   const handleUpdateFood = (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const updatedFoodName = form.updatedFoodName.value;
-    const updatedPrice = form.updatedPrice.value;
-    const updatedFoodCategoryName = form.updatedFoodCategoryName.value;
-    const updatedFoodImage = form.updatedFoodImage.value;
-    const updatedQuantity = form.updatedQuantity.value;
-    const updatedShortDescription = form.updatedShortDescription.value;
+    const food_name = form.updatedFoodName.value;
+    const price = form.updatedPrice.value;
+    const food_category = form.updatedFoodCategoryName.value;
+    const food_image = form.updatedFoodImage.value;
+    const quantity = form.updatedQuantity.value;
+    const description = form.updatedShortDescription.value;
 
     // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
     const updatedFood = {
-      updatedFoodName,
-      updatedPrice,
-      updatedFoodCategoryName,
-      updatedFoodImage,
-      updatedQuantity,
-      updatedShortDescription,
+      food_name,
+      price,
+      food_category,
+      food_image,
+      quantity,
+      description,
     };
 
     fetch(`${import.meta.env.VITE_API_URL}/updateFood/${_id}`, {

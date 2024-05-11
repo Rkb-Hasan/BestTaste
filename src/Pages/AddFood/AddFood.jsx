@@ -16,26 +16,32 @@ const AddFood = () => {
     e.preventDefault();
 
     const form = e.target;
-    const foodName = form.foodName.value;
+    const food_name = form.foodName.value;
     const price = form.price.value;
-    const foodCategoryName = form.foodCategoryName.value;
-    const foodImage = form.foodImage.value;
+    const food_category = form.foodCategoryName.value;
+    const food_image = form.foodImage.value;
     const quantity = form.quantity.value;
+    const description = form.shortDescription.value;
+    const made_by = form.madeBy.value;
+    const food_origin = form.foodOrigin.value;
     const userName = form.userName.value;
     const userEmail = form.userEmail.value;
-    const shortDescription = form.shortDescription.value;
+    const purchase_count = 0;
 
     // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
     const newFood = {
-      foodName,
+      food_name,
       price,
-      foodCategoryName,
-      foodImage,
-      quantity,
+      food_category,
+      food_image,
+      food_origin,
+      made_by,
+      description,
+      quantity: parseFloat(quantity),
+      purchase_count,
       userName,
       userEmail,
-      shortDescription,
     };
     console.log(newFood);
 
@@ -74,6 +80,7 @@ const AddFood = () => {
         className="border-2 rounded-2xl mx-auto lg:p-10 p-5 "
       >
         <div className="grid lg:grid-cols-2 lg:gap-20 mb-4">
+          {/* ---------------------------- */}
           <div className="space-y-4">
             <div className="space-y-3">
               <label
@@ -124,7 +131,23 @@ const AddFood = () => {
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
             </div>
+            <div className="space-y-3">
+              <label htmlFor="madeBy" className="lg:text-xl text-lg font-bold ">
+                Made BY
+              </label>
+              <br />
+              <input
+                type="text"
+                name="madeBy"
+                required
+                placeholder="Made By.."
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
           </div>
+
+          {/* --------------------------- */}
+
           <div className="space-y-4">
             <div className="space-y-3">
               <label
@@ -158,6 +181,22 @@ const AddFood = () => {
             </div>
             <div className="space-y-3">
               <label
+                htmlFor="foodOrigin"
+                className="lg:text-xl text-lg font-bold "
+              >
+                Food Origin
+              </label>
+              <br />
+              <input
+                type="text"
+                name="foodOrigin"
+                required
+                placeholder="Food Origin.."
+                className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              />
+            </div>
+            <div className="space-y-3">
+              <label
                 htmlFor="quantity"
                 className="lg:text-xl text-lg font-bold "
               >
@@ -174,6 +213,9 @@ const AddFood = () => {
             </div>
           </div>
         </div>
+
+        {/* ------------------------ */}
+
         <div className="mb-8">
           <p className="lg:text-xl text-lg font-bold border rounded-2xl p-2 mb-2 bg-primary text-white text-center">
             Add By

@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Gallery = () => {
   const { loading, user } = useContext(AuthContext);
   const [galleryDocs, setGalleryDocs] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -23,6 +26,42 @@ const Gallery = () => {
         <span className="loading loading-spinner loading-lg "></span>
       </div>
     );
+
+  const handleGallery = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = user?.displayName;
+    const feedback = form.feedback.value;
+    const image_url = form.image_url.value;
+
+    const galleryDoc = {
+      name,
+      feedback,
+      image_url,
+    };
+    console.log(galleryDoc);
+    // send to server
+    fetch(`${import.meta.env.VITE_API_URL}/galleryDoc`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(galleryDoc),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          console.log(data);
+          Swal.fire({
+            title: "Success!",
+            text: "Gallery Doc added",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+          navigate("/");
+        }
+      });
+  };
 
   return (
     <div>
@@ -63,9 +102,72 @@ const Gallery = () => {
                     <h3 className="font-semibold text-gray-400  text-left">
                       {galleryDoc.feedback}
                     </h3>
-                    <button className="btn mt-4  btn-primary  font-bold">
+                    <button
+                      onClick={() =>
+                        document.getElementById("my_modal_1").showModal()
+                      }
+                      className="btn mt-4  btn-primary  font-bold"
+                    >
                       Add
                     </button>
+                    <dialog id="my_modal_1" className="modal">
+                      <div className="modal-box">
+                        <form onSubmit={handleGallery}>
+                          <div className="form-control">
+                            <label className="label">
+                              <span className="label-text lg:text-lg">
+                                Name
+                              </span>
+                            </label>
+                            <input
+                              type="text"
+                              name="userName"
+                              value={user?.displayName}
+                              className="input input-bordered"
+                            />
+                          </div>
+                          <div className="form-control">
+                            <label className="label">
+                              <span className="label-text lg:text-lg">
+                                Image URL
+                              </span>
+                            </label>
+                            <input
+                              type="text"
+                              name="image_url"
+                              placeholder="Image URL..."
+                              className="input input-bordered"
+                            />
+                          </div>
+                          <div className="form-control">
+                            <label className="label">
+                              <span className="label-text lg:text-lg">
+                                feedback
+                              </span>
+                            </label>
+                            <input
+                              type="text"
+                              name="feedback"
+                              placeholder="feedback..."
+                              className="input input-bordered"
+                            />
+                          </div>
+                          <div className="form-control mt-6">
+                            <button className="btn btn-primary font-bold lg:text-lg">
+                              Add
+                            </button>
+                          </div>
+                        </form>
+                        <div className="modal-action">
+                          <form method="dialog">
+                            {/* if there is a button in form, it will close the modal */}
+                            <button className="btn btn-primary lg:text-lg">
+                              Close
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </dialog>
                   </div>
                 </div>
               </div>

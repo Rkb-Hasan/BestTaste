@@ -13,7 +13,7 @@ const Purchase = () => {
   const { _id, food_name, price, quantity, food_image, userEmail } = food;
   // console.log(food);
   const { user } = useContext(AuthContext);
-  const [startDate, setStartDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date().toLocaleString());
 
   const navigate = useNavigate();
 
@@ -27,6 +27,7 @@ const Purchase = () => {
     const quantity = form.quantity.value;
     const buyerName = form.buyerName.value;
     const buyerEmail = form.buyerEmail.value;
+    const buyDate = form.buyDate.value;
 
     // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
@@ -37,6 +38,7 @@ const Purchase = () => {
       quantity: parseFloat(quantity),
       buyerName,
       buyerEmail,
+      buyDate,
     };
     // console.log(purchasedFood);
     if (buyerEmail === userEmail) {
@@ -220,11 +222,21 @@ const Purchase = () => {
                 <span className="label-text lg:text-lg">Buying Date</span>
               </label>
 
-              <DatePicker
+              {/* <DatePicker
+                name="buyDate"
                 required
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
                 className="border-2  focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+              /> */}
+              <input
+                type="time"
+                name="localTime"
+                className="input input-bordered border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                defaultValue={new Date().toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
               />
             </div>
 

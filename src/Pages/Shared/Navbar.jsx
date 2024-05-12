@@ -6,6 +6,7 @@ import axios from "axios";
 // import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
+  console.log(user);
   // const [theme, setTheme] = useState("light");
 
   // useEffect(() => {
@@ -140,7 +141,7 @@ const Navbar = () => {
                   <img
                     alt="User"
                     className=" rounded-full w-10"
-                    src={user?.photoURL}
+                    src={user.proactiveRefresh.user?.photoURL}
                   />
                 </div>
                 <ul

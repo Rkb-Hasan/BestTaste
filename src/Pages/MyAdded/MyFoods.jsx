@@ -5,8 +5,8 @@ import MyFood from "./MyFood";
 import { Link } from "react-router-dom";
 
 const MyFoods = () => {
-  const [loadedFoods, setLoadedFoods] = useState([]);
   const [myFoods, setMyFoods] = useState([]);
+  // const [myFoods, setmyFoods] = useState([]);
 
   const { user } = useContext(AuthContext);
   //   console.log(user);
@@ -18,14 +18,14 @@ const MyFoods = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setLoadedFoods(data);
+        setMyFoods(data);
         // console.log(data);
       });
   }, [user?.email]);
 
-  useEffect(() => {
-    setMyFoods(loadedFoods);
-  }, [loadedFoods]);
+  //   useEffect(() => {
+  //     setmyFoods(myFoods);
+  //   }, [myFoods]);
 
   //   const handleYes = () => {
   //     const filtered = myFoods.filter((myFood) => myFood.customization == "yes");
@@ -67,7 +67,7 @@ const MyFoods = () => {
             : "grid lg:grid-cols-3  grid-cols-1 gap-4 my-10"
         }`}
       >
-        {loadedFoods.length === 0 && (
+        {myFoods.length === 0 && (
           <div className="flex flex-col items-center gap-6 bg-red-200 p-2 border-2 border-red-900 rounded-2xl">
             <p className=" font-bold text-lg text-red-500">
               Oppps!! No items are added by you.

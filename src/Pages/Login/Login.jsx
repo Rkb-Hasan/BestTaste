@@ -69,26 +69,26 @@ const Login = () => {
     }
   };
 
-  const handleGithub = async () => {
-    try {
-      const result = await githubSignIn();
-      console.log(result.user);
+  // const handleGithub = async () => {
+  //   try {
+  //     const result = await githubSignIn();
+  //     console.log(result.user);
 
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_API_URL}/jwt`,
-        {
-          email: result?.user?.email,
-        },
-        { withCredentials: true }
-      );
-      console.log(data);
-      toast.success("Signin Successful");
-      navigate(location?.state ? location.state : "/");
-    } catch (err) {
-      console.log(err);
-      toast.error(err?.message);
-    }
-  };
+  //     const { data } = await axios.post(
+  //       `${import.meta.env.VITE_API_URL}/jwt`,
+  //       {
+  //         email: result?.user?.email,
+  //       },
+  //       { withCredentials: true }
+  //     );
+  //     console.log(data);
+  //     toast.success("Signin Successful");
+  //     navigate(location?.state ? location.state : "/");
+  //   } catch (err) {
+  //     console.log(err);
+  //     toast.error(err?.message);
+  //   }
+  // };
 
   return (
     <div className="hero animate__animated animate__pulse">
@@ -161,13 +161,13 @@ const Login = () => {
 
           <div className="flex gap-6 items-center justify-center p-6">
             <div>
-              <button
+              {/* <button
                 onClick={handleGithub}
                 className="flex items-center gap-1 btn btn-outline text-lg font-semibold"
               >
                 {" "}
                 <FaGithub /> <span className="font-bold">Github</span>
-              </button>
+              </button> */}
             </div>
             <div>
               <button

@@ -7,8 +7,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 const Register = () => {
-  const { createUser, setUser, logOut, setLoading } = useContext(AuthContext);
+  const { createUser, setUser, logOut, setLoading, user } =
+    useContext(AuthContext);
   const [registerError, setRegisterError] = useState("");
   const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
@@ -36,20 +38,68 @@ const Register = () => {
     }
 
     // createUser;
+    //   createUser(email, password)
+    //     .then(async (result) => {
+    //       await updateProfile(result.user, {
+    //         displayName: name,
+    //         photoURL: photo,
+    //       })
+    //         .then(setUser(result.user))
+    //         // send the user to database
+    //         .then(
+    //           fetch(`${import.meta.env.VITE_API_URL}/users`, {
+    //             method: "POST",
+    //             headers: {
+    //               "content-type": "application/json",
+    //             },
+    //             body: JSON.stringify(user),
+    //           })
+    //         )
+    //         .then(logOut())
+
+    //         .catch((error) => console.log(error));
+
+    //       toast.success("User created successfully!!");
+    //       reset();
+    //       navigate("/login");
+    //     })
+    //     .catch((error) => {
+    //       toast.error(error.message.slice(10));
+    //       setLoading(false);
+    //     });
+
     createUser(email, password)
       .then(async (result) => {
-        await updateProfile(result.user, {
-          displayName: name,
-          photoURL: photo,
-        })
-          .then(setUser(result.user))
-          .then(logOut())
+        try {
+          // Update user profile
+          await updateProfile(result.user, {
+            displayName: name,
+            photoURL: photo,
+          });
 
-          .catch((error) => console.log(error));
+          // Send user data to the database
+          await fetch(`${import.meta.env.VITE_API_URL}/users`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({
+              userEmail: result.user?.email,
+              userName: result.user?.displayName,
+              photo: result.user?.photoURL,
+            }),
+          });
 
-        toast.success("User created successfully!!");
-        reset();
-        navigate("/login");
+          logOut();
+
+          toast.success("User created successfully!!");
+          reset();
+          navigate("/login");
+        } catch (error) {
+          console.log(error);
+          toast.error(error.message.slice(10));
+          setLoading(false);
+        }
       })
       .catch((error) => {
         toast.error(error.message.slice(10));

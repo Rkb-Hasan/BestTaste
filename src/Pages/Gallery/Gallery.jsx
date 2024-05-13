@@ -2,13 +2,13 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import bgImg from "../../assets/images/gallerybg.jpg";
 const Gallery = () => {
   const { loading, user } = useContext(AuthContext);
   const [galleryDocs, setGalleryDocs] = useState([]);
   const navigate = useNavigate();
-
+  const location = useLocation();
   useEffect(() => {
     getData();
   }, []);
@@ -65,7 +65,19 @@ const Gallery = () => {
 
   return (
     <div>
-      <section className="py-6 dark:bg-gray-100 dark:text-gray-900">
+      <div
+        className="w-full mb-10 bg-center bg-cover h-[25rem] flex flex-col justify-center items-center  rounded-2xl"
+        style={{
+          background: `url(${bgImg}),linear-gradient(180deg, rgba(19, 19, 24, 0.9) 0%, rgba(19, 19, 24, 0.7) 100%)`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <h3 className="text-5xl font-extrabold text-white">GALLERY</h3>
+      </div>
+
+      <section className="py-6 dark:bg-gray-100 dark:text-gray-900 rounded-2xl border-4">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           {/* <img
             src="https://source.unsplash.com/random/301x301/"
@@ -102,14 +114,21 @@ const Gallery = () => {
                     <h3 className="font-semibold text-gray-400  text-left">
                       {galleryDoc.feedback}
                     </h3>
-                    <button
-                      onClick={() =>
-                        document.getElementById("my_modal_1").showModal()
-                      }
-                      className="btn mt-4  btn-primary  font-bold"
+                    <Link
+                      to={{
+                        pathname: user ? "" : "/login",
+                      }}
+                      state={location.pathname}
                     >
-                      Add
-                    </button>
+                      <button
+                        onClick={() =>
+                          document.getElementById("my_modal_1").showModal()
+                        }
+                        className="btn mt-4  btn-primary  font-bold"
+                      >
+                        Add
+                      </button>
+                    </Link>
                     <dialog id="my_modal_1" className="modal">
                       <div className="modal-box">
                         <form onSubmit={handleGallery}>

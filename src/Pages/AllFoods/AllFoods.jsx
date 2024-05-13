@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Food from "./Food";
 import { useForm } from "react-hook-form";
+import bgImg from "../../assets/images/allbgjpg.jpg";
 
 const AllFoods = () => {
   const { reset } = useForm();
@@ -43,10 +44,25 @@ const AllFoods = () => {
 
   return (
     <div>
-      <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center">
+      {/* <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center">
         All Foods
       </h2>
+      <div className="divider"></div> */}
+
+      <div
+        className="w-full bg-center bg-cover h-[25rem] flex flex-col justify-center items-center  rounded-2xl"
+        style={{
+          backgroundImage: `url(${bgImg})`,
+        }}
+      >
+        <h3 className="text-5xl font-extrabold text-white">ALL FOODS</h3>
+      </div>
+
+      <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center mt-10">
+        Food Cards
+      </h2>
       <div className="divider"></div>
+
       <div className="flex flex-col">
         <form onSubmit={handleFoodSearch} className="flex justify-end">
           <label className="input border input-bordered rounded-r-none flex items-center gap-2">

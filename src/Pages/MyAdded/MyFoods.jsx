@@ -80,7 +80,12 @@ const MyFoods = () => {
           </div>
         )}
         {myFoods.map((myFood) => (
-          <MyFood key={myFood._id} myFood={myFood}></MyFood>
+          <MyFood
+            key={myFood._id}
+            myFood={myFood}
+            myFoods={myFoods}
+            setMyFoods={setMyFoods}
+          ></MyFood>
         ))}
       </div>
     </div>

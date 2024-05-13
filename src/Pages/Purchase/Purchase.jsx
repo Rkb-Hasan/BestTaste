@@ -14,8 +14,29 @@ const Purchase = () => {
   // console.log(food);
   const { user } = useContext(AuthContext);
   const [startDate, setStartDate] = useState(new Date().toLocaleString());
+  const [purchased, setPurchased] = useState([]);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!quantity) {
+      Swal.fire({
+        title: "Oppps!",
+        text: "Sorry! Item is not available!!",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
+
+    fetch(`${import.meta.env.VITE_API_URL}/purchase/${user?.email}`, {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setPurchased(data);
+        // console.log(data);
+      });
+  }, [quantity, user?.email]);
 
   const handlePurchase = (e) => {
     e.preventDefault();
@@ -41,6 +62,8 @@ const Purchase = () => {
       buyDate,
     };
     // console.log(purchasedFood);
+
+    // validate user
     if (buyerEmail === userEmail) {
       return Swal.fire({
         title: "Alert",
@@ -49,63 +72,82 @@ const Purchase = () => {
         confirmButtonText: "OK",
       });
     }
-    // update the purchase and quantity value in the foods collection
-    fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(purchasedFood),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // if (data.insertedId) {
-        //   console.log(data);
-        //   Swal.fire({
-        //     title: "Success!",
-        //     text: "Food Purchased!!",
-        //     icon: "success",
-        //     confirmButtonText: "OK",
-        //   });
-        //   navigate("/");
-        // }
-        console.log(data);
-      });
 
     // ------------------------
-    // send to purchase collection
-    fetch(`${import.meta.env.VITE_API_URL}/purchases`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(purchasedFood),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          console.log(data);
-          Swal.fire({
-            title: "Success!",
-            text: "Food Purchased!!",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-          navigate("/");
-        }
-      });
-  };
+    const checkDuplicate = purchased.find((prchase) => prchase._id === _id);
+    // if already exist the item don't add just update the quantity
+    if (checkDuplicate.length) {
+      fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(purchasedFood),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // if (data.insertedId) {
+          //   console.log(data);
+          //   Swal.fire({
+          //     title: "Success!",
+          //     text: "Food Purchased!!",
+          //     icon: "success",
+          //     confirmButtonText: "OK",
+          //   });
 
-  useEffect(() => {
-    if (!quantity) {
-      Swal.fire({
-        title: "Oppps!",
-        text: "Sorry! Item is not available!!",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
+          // }
+          console.log(data);
+          navigate("/");
+        });
+    } else {
+      // else send to server
+      // send to purchase collection
+      fetch(`${import.meta.env.VITE_API_URL}/purchases`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(purchasedFood),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            console.log(data);
+            Swal.fire({
+              title: "Success!",
+              text: "Food Purchased!!",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+            navigate("/");
+          }
+        });
     }
-  }, [quantity]);
+
+    // update the purchase and quantity value in the foods collection
+    !checkDuplicate.length &&
+      fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(purchasedFood),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // if (data.insertedId) {
+          //   console.log(data);
+          //   Swal.fire({
+          //     title: "Success!",
+          //     text: "Food Purchased!!",
+          //     icon: "success",
+          //     confirmButtonText: "OK",
+          //   });
+          //   navigate("/");
+          // }
+          console.log(data);
+        });
+  };
 
   // const handleValue = (e) => {
   //   const val = e.target.value;

@@ -1,42 +1,40 @@
 import { Link } from "react-router-dom";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
-const MyFood = ({ myFood }) => {
+
+const MyFood = ({ myFood, myFoods, setMyFoods }) => {
   const { _id, price, food_image, food_name } = myFood;
 
-  //   const handleDelete = (_id) => {
-  //     Swal.fire({
-  //       title: "Are you sure?",
-  //       text: "You won't be able to revert this!",
-  //       icon: "warning",
-  //       showCancelButton: true,
-  //       confirmButtonColor: "#3085d6",
-  //       cancelButtonColor: "#d33",
-  //       confirmButtonText: "Yes, delete it!",
-  //     }).then((result) => {
-  //       if (result.isConfirmed) {
-  //         fetch(
-  //           `https://assignment-10-server-eight-opal.vercel.app/crafts/${_id}`,
-  //           {
-  //             method: "DELETE",
-  //           }
-  //         )
-  //           .then((res) => res.json())
-  //           .then((data) => {
-  //             console.log(data);
-  //             if (data.deletedCount) {
-  //               Swal.fire({
-  //                 title: "Deleted!",
-  //                 text: "Your item has been deleted.",
-  //                 icon: "success",
-  //               });
-  //               const remaining = filteredFoods.filter((crft) => crft._id !== _id);
-  //               setFilteredFoods(remaining);
-  //             }
-  //           });
-  //       }
-  //     });
-  //   };
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API_URL}/delete-food/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your item has been deleted.",
+                icon: "success",
+              });
+              const remaining = myFoods.filter((fd) => fd._id !== _id);
+              setMyFoods(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="card pb-2  bg-base-200 hover:shadow-xl">
@@ -82,14 +80,14 @@ const MyFood = ({ myFood }) => {
               Update
             </button>
           </Link>
-          {/* <Link to="">
+          <Link to="">
             <button
               onClick={() => handleDelete(_id)}
               className=" btn w-full bg-red-500 font-bold text-lg "
             >
               Delete
             </button>
-          </Link> */}
+          </Link>
         </div>
       </div>
     </div>

@@ -35,7 +35,7 @@ const TopFood = ({ top }) => {
 
         <div>
           <Link to={`/food/${_id}`}>
-            <button className=" btn w-full btn-primary font-bold text-lg ">
+            <button className=" btn w-full bg-[#7D3C98] text-white hover:bg-purple-600 font-bold text-lg ">
               Details
             </button>
           </Link>

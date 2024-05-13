@@ -66,7 +66,7 @@ const Gallery = () => {
   return (
     <div>
       <div
-        className="w-full mb-10 bg-center bg-cover h-[25rem] flex flex-col justify-center items-center  rounded-2xl"
+        className="w-full mb-10 bg-center bg-cover h-[25rem]   rounded-2xl"
         style={{
           background: `url(${bgImg}),linear-gradient(180deg, rgba(19, 19, 24, 0.9) 0%, rgba(19, 19, 24, 0.7) 100%)`,
           backgroundRepeat: "no-repeat",
@@ -74,9 +74,11 @@ const Gallery = () => {
           backgroundPosition: "center",
         }}
       >
-        <h3 className="text-5xl font-extrabold text-white">GALLERY</h3>
+        <h3 className="flex flex-col justify-center items-center w-full h-full bg-gray-900/70 text-5xl font-extrabold text-white rounded-2xl text-opacity-85">
+          GALLERY
+        </h3>
       </div>
-
+      {/* className=" " */}
       <section className="py-6 dark:bg-gray-100 dark:text-gray-900 rounded-2xl border-4">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           {/* <img

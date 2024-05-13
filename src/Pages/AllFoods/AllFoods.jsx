@@ -50,12 +50,14 @@ const AllFoods = () => {
       <div className="divider"></div> */}
 
       <div
-        className="w-full bg-center bg-cover h-[25rem] flex flex-col justify-center items-center  rounded-2xl"
+        className="w-full bg-center bg-cover h-[25rem]   rounded-2xl"
         style={{
           backgroundImage: `url(${bgImg})`,
         }}
       >
-        <h3 className="text-5xl font-extrabold text-white">ALL FOODS</h3>
+        <h3 className="flex flex-col justify-center items-center w-full h-full bg-gray-900/70 text-5xl font-extrabold text-white rounded-2xl text-opacity-85">
+          ALL FOODS
+        </h3>
       </div>
 
       <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center mt-10">

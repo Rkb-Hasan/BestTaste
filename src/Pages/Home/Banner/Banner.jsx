@@ -34,27 +34,27 @@ const Banner = () => {
           <Slide
             image={bg1}
             description={
-              "asdlkjhasflchsdalcfjksdhljvhsdlkjvahdfuiashvckjnudiswvfhsdvjk"
+              "Embark on a Gastronomic Journey and Savor the Finest Flavors at 'BEST TASTE' - Where Every Bite Tells a Story"
             }
-            text={"etxt text text text"}
+            text={"Indulge Your Senses"}
           ></Slide>
         </SwiperSlide>
         <SwiperSlide>
           <Slide
             image={bg2}
             description={
-              "asdlkjhasflchsdalcfjksdhljvhsdlkjvahdfuiashvckjnudiswvfhsdvjk"
+              "Embark on a Gastronomic Journey and Savor the Finest Flavors at 'BEST TASTE' - Where Every Bite Tells a Story"
             }
-            text={"etxt text text text"}
+            text={"Indulge Your Senses"}
           ></Slide>
         </SwiperSlide>
         <SwiperSlide>
           <Slide
             image={bg3}
             description={
-              "asdlkjhasflchsdalcfjksdhljvhsdlkjvahdfuiashvckjnudiswvfhsdvjk"
+              "Embark on a Gastronomic Journey and Savor the Finest Flavors at 'BEST TASTE' - Where Every Bite Tells a Story"
             }
-            text={"etxt text text text"}
+            text={"Indulge Your Senses"}
           ></Slide>
         </SwiperSlide>
       </Swiper>

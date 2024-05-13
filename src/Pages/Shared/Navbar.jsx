@@ -53,7 +53,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-green-500 bg-opacity-70">
+    <div className="">
       <div className="navbar  mx-auto px-4  ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -80,8 +80,8 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost lg:text-4xl  md:text-3xl font-bold text-2xl">
-            CraftCorner
+          <a className="btn btn-ghost lg:text-4xl  text-purple-950 md:text-3xl font-bold text-2xl">
+            Best Taste
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -146,21 +146,21 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content  z-[1000] menu p-2 pb-0  bg-green-600 border-2  rounded-box w-52"
+                  className="dropdown-content  z-[1000] menu p-2 pb-0  bg-purple-800 border-2  rounded-box w-52"
                 >
                   <Link to="/addedFoods" className="border-b-2">
-                    <li className="font-bold p-2  text-black ">
+                    <li className="font-bold p-2  text-white ">
                       {" "}
                       My added food items
                     </li>
                   </Link>
                   <Link to="/add-food" className="border-b-2">
-                    <li className="font-bold p-2  text-black ">
+                    <li className="font-bold p-2  text-white ">
                       Add a food item
                     </li>
                   </Link>
                   <Link to="/purchasedFoods" className="border-b-2">
-                    <li className="font-bold  p-2 text-black ">
+                    <li className="font-bold  p-2 text-white ">
                       My ordered food items
                     </li>
                   </Link>
@@ -168,7 +168,7 @@ const Navbar = () => {
               </div>
               <button
                 onClick={handleLogOut}
-                className="btn font-bold lg:text-lg btn-primary "
+                className="btn font-bold lg:text-lg bg-[#7D3C98] text-white "
               >
                 Log Out
               </button>

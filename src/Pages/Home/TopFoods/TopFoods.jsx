@@ -31,7 +31,7 @@ const TopFoods = () => {
       </h2>
       <div className="divider"></div>
       <div className="flex flex-col">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 md:gap-3 gap-2 bg-base-200 p-5 border rounded-2xl my-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 md:gap-3 gap-2 bg-[#8E4585] bg-opacity-30 p-5 border rounded-2xl my-6">
           {topFoods.slice(0, 6).map((top) => (
             <TopFood key={top._id} top={top}></TopFood>
           ))}
@@ -39,7 +39,7 @@ const TopFoods = () => {
         <div>
           <Link to="/allFoods">
             {" "}
-            <button className="btn btn-secondary font-bold w-full lg:text-lg">
+            <button className="btn text-white bg-[#7D3C98] hover:bg-purple-600  font-bold w-full lg:text-lg">
               See All
             </button>
           </Link>

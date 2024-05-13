@@ -42,7 +42,7 @@ const MyFoods = () => {
         <title>My Foods</title>
       </Helmet>
       <div className="flex">
-        <h3 className="lg:text-4xl md:text-3xl text-xl font-bold md:text-center text-left flex-1">
+        <h3 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center flex-1">
           My Added Food Items{" "}
         </h3>
         {/* <details className="dropdown dropdown-bottom dropdown-end  ms-auto">
@@ -59,7 +59,7 @@ const MyFoods = () => {
           </ul>
         </details> */}
       </div>
-      <div className="divider"></div>
+      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
       <div
         className={`${
           myFoods.length === 0

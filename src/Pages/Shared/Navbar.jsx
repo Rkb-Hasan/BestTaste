@@ -3,6 +3,8 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import axios from "axios";
+// import logo from "../../assets/images/logopng.png";
+
 // import { Tooltip } from "react-tooltip";
 const Navbar = () => {
   const { user, logOut, loading } = useContext(AuthContext);
@@ -80,9 +82,12 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost lg:text-4xl  text-purple-950 md:text-3xl font-bold text-2xl">
+          <Link
+            to="/"
+            className="btn btn-ghost lg:text-4xl font-Permanent text-purple-950 md:text-3xl font-bold text-2xl"
+          >
             Best Taste
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 font-semibold text-lg">

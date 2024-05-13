@@ -1,10 +1,10 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 
@@ -13,7 +13,7 @@ const Purchase = () => {
   const { _id, food_name, price, quantity, food_image, userEmail } = food;
   // console.log(food);
   const { user } = useContext(AuthContext);
-  const [startDate, setStartDate] = useState(new Date().toLocaleString());
+  // const [startDate, setStartDate] = useState(new Date().toLocaleString());
   const [purchased, setPurchased] = useState([]);
 
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ const Purchase = () => {
     // validate user
     if (buyerEmail === userEmail) {
       return Swal.fire({
-        title: "Alert",
+        title: "Ooopss!!",
         text: "Sorry! Can not buy self added-items!!",
         icon: "error",
         confirmButtonText: "OK",
@@ -74,9 +74,13 @@ const Purchase = () => {
     }
 
     // ------------------------
-    const checkDuplicate = purchased.find((prchase) => prchase._id === _id);
+    const checkDuplicate = purchased.find(
+      (prchase) => prchase.foodName === food_name
+    );
+    console.log(checkDuplicate);
+    let itemFound = false;
     // if already exist the item don't add just update the quantity
-    if (checkDuplicate.length) {
+    if (checkDuplicate) {
       fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
         method: "PATCH",
         headers: {
@@ -86,20 +90,22 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // if (data.insertedId) {
-          //   console.log(data);
-          //   Swal.fire({
-          //     title: "Success!",
-          //     text: "Food Purchased!!",
-          //     icon: "success",
-          //     confirmButtonText: "OK",
-          //   });
-
-          // }
-          console.log(data);
+          if (data.modifiedCount) {
+            console.log(data);
+            Swal.fire({
+              title: "Success!",
+              text: "Updated the previous order for this food!!",
+              icon: "success",
+              confirmButtonText: "OK",
+            });
+          }
+          // console.log(data);
           navigate("/");
         });
-    } else {
+      itemFound = true;
+    }
+    // console.log(itemFound);
+    if (!itemFound) {
       // else send to server
       // send to purchase collection
       fetch(`${import.meta.env.VITE_API_URL}/purchases`, {
@@ -123,9 +129,9 @@ const Purchase = () => {
           }
         });
     }
-
-    // update the purchase and quantity value in the foods collection
-    !checkDuplicate.length &&
+    // update the purchase and new product quantity value in the foods collection
+    // !checkDuplicate &&
+    if (!itemFound) {
       fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
         method: "PATCH",
         headers: {
@@ -135,20 +141,10 @@ const Purchase = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // if (data.insertedId) {
-          //   console.log(data);
-          //   Swal.fire({
-          //     title: "Success!",
-          //     text: "Food Purchased!!",
-          //     icon: "success",
-          //     confirmButtonText: "OK",
-          //   });
-          //   navigate("/");
-          // }
           console.log(data);
         });
+    }
   };
-
   // const handleValue = (e) => {
   //   const val = e.target.value;
   //   if (val === 30) {
@@ -168,7 +164,9 @@ const Purchase = () => {
       </Helmet>
       <div className="hero-content flex-col animate__animated animate__pulse">
         <div className="text-center ">
-          <h1 className="lg:text-5xl text-3xl font-bold">Purchase</h1>
+          <h1 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+            Purchase
+          </h1>
         </div>
         <div className="card shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl bg-base-100 pb-6 border-2">
           <form onSubmit={handlePurchase} className="card-body pb-0">
@@ -210,7 +208,7 @@ const Purchase = () => {
                 placeholder="Quantity"
                 defaultValue={quantity}
                 max={quantity}
-                min={0}
+                min={1}
                 className="input input-bordered  border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               />
 
@@ -264,6 +262,15 @@ const Purchase = () => {
                 <span className="label-text lg:text-lg">Buying Date</span>
               </label>
 
+              <input
+                type="time"
+                name="buyDate"
+                className="input input-bordered border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
+                defaultValue={new Date().toLocaleTimeString([], {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              />
               {/* <DatePicker
                 name="buyDate"
                 required
@@ -271,15 +278,6 @@ const Purchase = () => {
                 onChange={(date) => setStartDate(date)}
                 className="border-2  focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               /> */}
-              <input
-                type="time"
-                name="localTime"
-                className="input input-bordered border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
-                defaultValue={new Date().toLocaleTimeString([], {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
-              />
             </div>
 
             <div className="form-control mt-6">

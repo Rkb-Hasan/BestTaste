@@ -14,7 +14,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Slide from "./Slide";
 const Banner = () => {
   return (
-    <div className="container px-8 py-10 mx-auto">
+    <div className="container lg:px-8 lg:py-10 mx-auto">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}

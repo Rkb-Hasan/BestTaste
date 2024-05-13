@@ -43,7 +43,7 @@ const MyPurchases = () => {
       </ul>
     </details> */}
       </div>
-      <div className="divider"></div>
+      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
       <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
         {myPurchases.map((myPurchase) => (
           <MyPurchase

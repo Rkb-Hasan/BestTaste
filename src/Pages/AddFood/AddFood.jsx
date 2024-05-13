@@ -73,11 +73,13 @@ const AddFood = () => {
       <Helmet>
         <title>Add Food</title>
       </Helmet>
-      <h3 className="lg:text-4xl text-2xl font-bold  text-center">Add Food</h3>
-      <div className="divider"></div>
+      <h3 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+        Add Food
+      </h3>
+      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
       <form
         onSubmit={handleAddFood}
-        className="border-2 rounded-2xl mx-auto lg:p-10 p-5 "
+        className="border-2 bg-violet-500 border-purple-900 rounded-2xl mx-auto lg:p-10 p-5 "
       >
         <div className="grid lg:grid-cols-2 lg:gap-20 mb-4">
           {/* ---------------------------- */}
@@ -216,11 +218,11 @@ const AddFood = () => {
 
         {/* ------------------------ */}
 
-        <div className="mb-8">
-          <p className="lg:text-xl text-lg font-bold border rounded-2xl p-2 mb-2 bg-primary text-white text-center">
+        <div className="mb-8 p-2 border bg-violet-700 rounded-2xl">
+          <p className="lg:text-xl text-lg font-bold  m-2  text-black  text-opacity-70 text-center">
             Add By
           </p>
-
+          <div className="divider m-0 mb-2 bg-slate-100 h-[1px]"></div>
           <div className="space-y-3 ">
             <div className="lg:flex lg:gap-20 ">
               <input

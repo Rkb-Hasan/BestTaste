@@ -6,13 +6,13 @@ const Reviews = () => {
   return (
     <div className="mt-16">
       {" "}
-      <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
         Reviews
       </h2>
-      <div className="divider"></div>
+      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
       <section className="bg-[#9A6CD4] rounded-2xl">
         <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <h2 className="text-center text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="text-center text-4xl font-bold tracking-tight text-purple-950 sm:text-5xl">
             Read trusted reviews from our customers
           </h2>
 

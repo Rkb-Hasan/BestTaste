@@ -60,10 +60,10 @@ const AllFoods = () => {
         </h3>
       </div>
 
-      <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center mt-10">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center mt-10">
         Food Cards
       </h2>
-      <div className="divider"></div>
+      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
 
       <div className="flex flex-col">
         <form onSubmit={handleFoodSearch} className="flex justify-end">

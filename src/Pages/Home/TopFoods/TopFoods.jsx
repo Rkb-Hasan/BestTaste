@@ -25,11 +25,11 @@ const TopFoods = () => {
       </div>
     );
   return (
-    <div>
-      <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center">
+    <div className="mt-10">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 lg:mb-4 mb-2 font-bold text-center">
         Top Foods
       </h2>
-      <div className="divider"></div>
+      <div className="divider bg-[#511b4b] m-0  lg:h-1 h-[2px]"></div>
       <div className="flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 md:gap-3 gap-2 bg-[#8E4585] bg-opacity-30 p-5 border rounded-2xl my-6">
           {topFoods.slice(0, 6).map((top) => (

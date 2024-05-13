@@ -99,9 +99,11 @@ const Login = () => {
 
       <div className="hero-content flex-col ">
         <div className="text-center ">
-          <h1 className="lg:text-5xl text-3xl font-bold ">Login now!</h1>
+          <h1 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+            Login now!
+          </h1>
         </div>
-        <div className="card shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl bg-base-100 border-2">
+        <div className="card shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl   bg-violet-500 border-2 border-purple-900">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body ">
             <div className="form-control">
               <label className="label">

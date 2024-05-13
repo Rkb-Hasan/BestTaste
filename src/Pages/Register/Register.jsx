@@ -114,9 +114,11 @@ const Register = () => {
       </Helmet>
       <div className="hero-content flex-col animate__animated animate__pulse">
         <div className="text-center ">
-          <h1 className="lg:text-5xl text-3xl font-bold">Register now!</h1>
+          <h1 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+            Register now!
+          </h1>
         </div>
-        <div className="card shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl bg-base-100 pb-6 border-2">
+        <div className="card bg-violet-500 shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl  pb-6 border-2 border-purple-950">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
             <div className="form-control">
               <label className="label">

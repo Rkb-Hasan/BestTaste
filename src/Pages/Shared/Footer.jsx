@@ -1,7 +1,7 @@
 import logo from "../../assets/images/logopng.png";
 const Footer = () => {
   return (
-    <div className="bg-green-500 bg-opacity-70">
+    <div className="">
       {" "}
       {/* <footer className="footer p-10  text-black lg:min-h-60   text-base max-w-7xl mx-auto px-4 ">
         <nav>
@@ -48,7 +48,7 @@ const Footer = () => {
         <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
-              <div className="flex justify-center text-white sm:justify-start">
+              <div className="flex justify-center text-gray-800 sm:justify-start">
                 <img
                   src={logo}
                   className="w-44 rounded-2xl opacity-70"
@@ -57,7 +57,7 @@ const Footer = () => {
                 {/* <h2 className="lg:text-lg font-bold">Best Taste</h2> */}
               </div>
 
-              <p className="mt-6 max-w-md text-center leading-relaxed text-white sm:max-w-xs sm:text-left">
+              <p className="mt-6 max-w-md text-center leading-relaxed text-gray-800 sm:max-w-xs sm:text-left">
                 Embark on a Gastronomic Journey and Savor the Finest Flavors at
                 'BEST TASTE' - Where Every Bite Tells a Story
               </p>
@@ -155,12 +155,12 @@ const Footer = () => {
 
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">About Us</p>
+                <p className="text-lg font-medium text-gray-800">About Us</p>
 
                 <ul className="mt-8 space-y-4 text-sm">
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       Company History
@@ -169,7 +169,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       Meet the Team
@@ -178,7 +178,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       Employee Handbook
@@ -187,7 +187,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       {" "}
@@ -198,12 +198,14 @@ const Footer = () => {
               </div>
 
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">Our Services</p>
+                <p className="text-lg font-medium text-gray-800">
+                  Our Services
+                </p>
 
                 <ul className="mt-8 space-y-4 text-sm">
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       Web Development
@@ -212,7 +214,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       {" "}
@@ -222,7 +224,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       {" "}
@@ -232,7 +234,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       {" "}
@@ -243,12 +245,14 @@ const Footer = () => {
               </div>
 
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">Helpful Links</p>
+                <p className="text-lg font-medium text-gray-800">
+                  Helpful Links
+                </p>
 
                 <ul className="mt-8 space-y-4 text-sm">
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       {" "}
@@ -258,7 +262,7 @@ const Footer = () => {
 
                   <li>
                     <a
-                      className="text-white transition hover:text-white/75"
+                      className="text-gray-800 transition hover:text-gray-800/75"
                       href="#"
                     >
                       {" "}
@@ -269,7 +273,7 @@ const Footer = () => {
               </div>
 
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">Contact Us</p>
+                <p className="text-lg font-medium text-gray-800">Contact Us</p>
 
                 <ul className="mt-8 space-y-4 text-sm">
                   <li>
@@ -279,7 +283,7 @@ const Footer = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="size-5 shrink-0 text-white"
+                        className="size-5 shrink-0 text-gray-800"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -292,7 +296,7 @@ const Footer = () => {
                         />
                       </svg>
 
-                      <span className="flex-1 text-white">john@doe.com</span>
+                      <span className="flex-1 text-gray-800">john@doe.com</span>
                     </a>
                   </li>
 
@@ -303,7 +307,7 @@ const Footer = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="size-5 shrink-0 text-white"
+                        className="size-5 shrink-0 text-gray-800"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -316,14 +320,14 @@ const Footer = () => {
                         />
                       </svg>
 
-                      <span className="flex-1 text-white">0123456789</span>
+                      <span className="flex-1 text-gray-800">0123456789</span>
                     </a>
                   </li>
 
                   <li className="flex items-start justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="size-5 shrink-0 text-white"
+                      className="size-5 shrink-0 text-gray-800"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -341,7 +345,7 @@ const Footer = () => {
                       />
                     </svg>
 
-                    <address className="-mt-0.5 flex-1 not-italic text-white">
+                    <address className="-mt-0.5 flex-1 not-italic text-gray-800">
                       213 Lane, London, United Kingdom
                     </address>
                   </li>
@@ -352,11 +356,11 @@ const Footer = () => {
 
           <div className="mt-12 border-t border-gray-100 pt-6">
             <div className="text-center sm:flex sm:justify-between sm:text-left">
-              <p className="text-sm text-white">
+              <p className="text-sm text-gray-800">
                 <span className="block sm:inline">All rights reserved.</span>
 
                 <a
-                  className="inline-block text-white underline transition hover:text-white/75"
+                  className="inline-block text-gray-800 underline transition hover:text-gray-800/75"
                   href="#"
                 >
                   Terms & Conditions
@@ -365,14 +369,14 @@ const Footer = () => {
                 <span>&middot;</span>
 
                 <a
-                  className="inline-block text-white underline transition hover:text-white/75"
+                  className="inline-block text-gray-800 underline transition hover:text-gray-800/75"
                   href="#"
                 >
                   Privacy Policy
                 </a>
               </p>
 
-              <p className="mt-4 text-sm text-white sm:order-first sm:mt-0">
+              <p className="mt-4 text-sm text-gray-800 sm:order-first sm:mt-0">
                 &copy; 2024 Best Taste
               </p>
             </div>

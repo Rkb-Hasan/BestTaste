@@ -84,13 +84,15 @@ const UpdateFood = () => {
   return (
     <div>
       <Helmet>
-        <title>Add Food</title>
+        <title>Update Food</title>
       </Helmet>
-      <h3 className="lg:text-4xl text-2xl font-bold  text-center">Add Food</h3>
-      <div className="divider"></div>
+      <h3 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+        Update Food
+      </h3>
+      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
       <form
         onSubmit={handleUpdateFood}
-        className="border-2 rounded-2xl mx-auto lg:p-10 p-5 "
+        className="border-2 bg-violet-500 text-black text-opacity-70  border-purple-950 rounded-2xl mx-auto lg:p-10 p-5 "
       >
         <div className="grid lg:grid-cols-2 lg:gap-20 mb-4">
           <div className="space-y-4">

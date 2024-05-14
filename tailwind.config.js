@@ -6,6 +6,10 @@ export default {
       fontFamily: {
         Permanent: '"Permanent Marker", cursive',
         poppins: '"Poppins", sans-serif',
+        exo: '"Exo", sans-serif',
+      },
+      borderImage: {
+        "gradient-purple-blue": "linear-gradient(90deg, #D400FF, #00CCFF)", // Define your custom gradient
       },
     },
   },

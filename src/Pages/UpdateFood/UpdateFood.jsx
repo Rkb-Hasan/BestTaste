@@ -86,10 +86,10 @@ const UpdateFood = () => {
       <Helmet>
         <title>Update Food</title>
       </Helmet>
-      <h3 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+      <h3 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
         Update Food
       </h3>
-      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
+      <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
       <form
         onSubmit={handleUpdateFood}
         className="border-2 bg-violet-500 text-black text-opacity-70  border-purple-950 rounded-2xl mx-auto lg:p-10 p-5 "
@@ -208,7 +208,7 @@ const UpdateFood = () => {
         <input
           type="submit"
           value="Update"
-          className="w-full btn btn-primary font-bold text-lg"
+          className="w-full btn bg-purple-900 text-black hover:bg-violet-800 font-bold text-lg"
         />
       </form>
     </div>

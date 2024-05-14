@@ -28,7 +28,7 @@ const MyPurchases = () => {
         <title>My Purchases</title>
       </Helmet>
       <div className="flex">
-        <h3 className="lg:text-4xl md:text-3xl text-xl font-bold md:text-center text-left flex-1">
+        <h3 className="lg:text-4xl md:text-3xl text-[#8A2BE2] text-xl font-bold md:text-center text-left flex-1">
           My Purchased Food Items{" "}
         </h3>
         {/* <details className="dropdown dropdown-bottom dropdown-end  ms-auto">
@@ -45,8 +45,13 @@ const MyPurchases = () => {
       </ul>
     </details> */}
       </div>
-      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
-      <div className="grid lg:grid-cols-3  grid-cols-1 gap-4 my-10">
+      <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
+      <div
+        className={`grid lg:grid-cols-3 grid-cols-1 gap-4 p-4 my-10 ${
+          myPurchases.length &&
+          "bg-gradient-to-r from-[#8A2BE24D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE20D] to-100% border-gradient-right"
+        } `}
+      >
         {myPurchases.map((myPurchase) => (
           <MyPurchase
             key={myPurchase._id}

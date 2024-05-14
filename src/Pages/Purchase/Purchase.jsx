@@ -164,7 +164,7 @@ const Purchase = () => {
       </Helmet>
       <div className="hero-content flex-col animate__animated animate__pulse">
         <div className="text-center ">
-          <h1 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+          <h1 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
             Purchase
           </h1>
         </div>

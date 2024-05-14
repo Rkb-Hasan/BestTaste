@@ -39,46 +39,20 @@ const MyFoods = () => {
   return (
     <div>
       <Helmet>
-        <title>My Foods</title>
+        <title>Added Foods</title>
       </Helmet>
       <div className="flex">
-        <h3 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center flex-1">
+        <h3 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center flex-1">
           My Added Food Items{" "}
         </h3>
-        {/* <details className="dropdown dropdown-bottom dropdown-end  ms-auto">
-          <summary className="m-1 btn lg:btn-md btn-sm btn-primary lg:text-lg font-bold">
-            Customization
-          </summary>
-          <ul className="md:p-2 p-1 shadow menu dropdown-content bg-green-700  z-[100]  rounded-box lg:w-40 md:w-32 w-20">
-            <li onClick={handleYes} className="font-bold text-lg  border-b-2">
-              <a>yes</a>
-            </li>
-            <li onClick={handleNo} className="font-bold text-lg">
-              <a>no</a>
-            </li>
-          </ul>
-        </details> */}
       </div>
-      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
+      <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
       <div
-        className={`${
-          myFoods.length === 0
-            ? "flex flex-col justify-center items-center"
-            : "grid lg:grid-cols-3  grid-cols-1 gap-4 my-10"
+        className={`grid lg:grid-cols-3  grid-cols-1 gap-4 p-4 rounded-2xl my-10 ${
+          myFoods.length &&
+          "bg-gradient-to-r from-[#8A2BE24D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE20D] to-100% border-gradient-right"
         }`}
       >
-        {myFoods.length === 0 && (
-          <div className="flex flex-col items-center gap-6 bg-red-200 p-2 border-2 border-red-900 rounded-2xl">
-            <p className=" font-bold text-lg text-red-500">
-              Oppps!! No items are added by you.
-            </p>
-            <Link to="/add-food">
-              <button className="btn btn-primary font-bold border-red-900 bg-red-700 hover:bg-red-800 hover:text-white">
-                Add Items
-              </button>
-            </Link>
-          </div>
-        )}
         {myFoods.map((myFood) => (
           <MyFood
             key={myFood._id}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFood = () => {
@@ -15,12 +16,15 @@ const SingleFood = () => {
   } = food;
   return (
     <section>
-      <div className="bg-violet-600">
+      <Helmet>
+        <title>single Food</title>
+      </Helmet>
+      <div className="bg-[#8A2BE2] bg-opacity-10">
         <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 text-gray-50">
           <h1 className="lg:text-4xl md:text-3xl text-xl font-bold leading-none sm:text-6xl xl:max-w-3xl text-gray-50">
             {food_name}
           </h1>
-          <div className="divider m-0 lg:mt-4 mt-2 bg-violet-900 md:h-1 h-[2px]"></div>
+          <div className="divider m-0 lg:mt-4 mt-2 bg-[#8A2BE2] md:h-1 h-[2px]"></div>
           <p className="bg-white p-2 rounded-2xl text-left bg-opacity-15 hover:bg-opacity-10  border-2 border-violet-800 lg:mt-8 mt-6 lg:text-lg  text-gray-50">
             {description}
           </p>

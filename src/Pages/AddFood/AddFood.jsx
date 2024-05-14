@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 const AddFood = () => {
   const { user } = useContext(AuthContext);
   const { email, displayName } = user;
-  //   console.log(email, displayName);
+
   const navigate = useNavigate();
 
   //
@@ -27,8 +27,6 @@ const AddFood = () => {
     const userName = form.userName.value;
     const userEmail = form.userEmail.value;
     const purchase_count = 0;
-
-    // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
     const newFood = {
       food_name,
@@ -73,10 +71,10 @@ const AddFood = () => {
       <Helmet>
         <title>Add Food</title>
       </Helmet>
-      <h3 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+      <h3 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
         Add Food
       </h3>
-      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
+      <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
       <form
         onSubmit={handleAddFood}
         className="border-2 bg-violet-500 border-purple-900 rounded-2xl mx-auto lg:p-10 p-5 "
@@ -174,7 +172,7 @@ const AddFood = () => {
               </label>
               <br />
               <input
-                type="text"
+                type="number"
                 name="price"
                 required
                 placeholder="Price.."
@@ -208,6 +206,7 @@ const AddFood = () => {
               <input
                 type="number"
                 name="quantity"
+                min={0}
                 required
                 placeholder="Quantity.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
@@ -247,7 +246,7 @@ const AddFood = () => {
         <input
           type="submit"
           value="Add"
-          className="w-full btn btn-primary font-bold text-lg"
+          className="w-full btn bg-violet-600 hover:bg-purple-800 font-bold text-lg"
         />
       </form>
     </div>

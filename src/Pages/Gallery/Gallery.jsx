@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import bgImg from "../../assets/images/gallerybg.jpg";
+import { Helmet } from "react-helmet-async";
 const Gallery = () => {
   const { loading, user } = useContext(AuthContext);
   const [galleryDocs, setGalleryDocs] = useState([]);
@@ -65,6 +66,9 @@ const Gallery = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Gallery</title>
+      </Helmet>
       <div
         className="w-full mb-10 bg-center bg-cover h-[25rem]   rounded-2xl"
         style={{
@@ -79,7 +83,7 @@ const Gallery = () => {
         </h3>
       </div>
       {/* className=" " */}
-      <section className="pt-6 dark:bg-gray-100 dark:text-gray-900 rounded-2xl border-4 flex flex-col ">
+      <section className="pt-6 bg-gradient-to-r from-[#8A2BE20D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE24D] to-100% border-gradient rounded-2xl  flex flex-col ">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           {/* <img
             src="https://source.unsplash.com/random/301x301/"
@@ -132,7 +136,7 @@ const Gallery = () => {
           >
             <button
               onClick={() => document.getElementById("my_modal_1").showModal()}
-              className="btn mt-4 w-full bg-purple-950 text-white hover:bg-purple-800 hover:text-slate-800 md:text-lg font-bold"
+              className="btn border-[#8A2BE2] mt-4 w-full bg-purple-950 text-white hover:bg-purple-800  md:text-lg font-bold"
             >
               Add
             </button>

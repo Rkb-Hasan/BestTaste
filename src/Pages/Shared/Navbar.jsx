@@ -43,13 +43,19 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className="text-[#8A2BE2]" to="/">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/allFoods">All Foods</NavLink>
+        <NavLink className="text-[#8A2BE2]" to="/allFoods">
+          All Foods
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/gallery">Gallery</NavLink>
+        <NavLink className="text-[#8A2BE2]" to="/gallery">
+          Gallery
+        </NavLink>
       </li>
     </>
   );
@@ -84,7 +90,7 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost lg:text-4xl font-Permanent text-purple-950 md:text-3xl font-bold text-2xl"
+            className="btn btn-ghost lg:text-4xl font-Permanent text-[#8A2BE2] md:text-3xl font-bold text-2xl"
           >
             Best Taste
           </Link>
@@ -154,7 +160,7 @@ const Navbar = () => {
                   className="dropdown-content  z-[1000] menu p-2 pb-0  bg-purple-800 border-2  rounded-box w-52"
                 >
                   <Link to="/addedFoods" className="border-b-2">
-                    <li className="font-bold p-2  text-white ">
+                    <li className="font-bold p-2 text-white">
                       {" "}
                       My added food items
                     </li>

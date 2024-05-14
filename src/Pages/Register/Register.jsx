@@ -114,33 +114,33 @@ const Register = () => {
       </Helmet>
       <div className="hero-content flex-col animate__animated animate__pulse">
         <div className="text-center ">
-          <h1 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+          <h1 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
             Register now!
           </h1>
         </div>
-        <div className="card bg-violet-500 shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl  pb-6 border-2 border-purple-950">
+        <div className="card  shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl  pb-6 bg-gradient-to-r from-[#8A2BE24D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE20D] to-100% border-gradient text-white">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-0">
             <div className="form-control">
               <label className="label">
-                <span className="label-text lg:text-lg">Name</span>
+                <span className="label-text  text-white lg:text-lg">Name</span>
               </label>
               <input
                 name="name"
                 type="text"
                 placeholder="Name"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 {...register("name")}
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text lg:text-lg">Email</span>
+                <span className="label-text  text-white lg:text-lg">Email</span>
               </label>
               <input
                 name="email"
                 type="email"
                 placeholder="Email"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 {...register("email", { required: true })}
               />
               {errors.email && (
@@ -149,29 +149,33 @@ const Register = () => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text lg:text-lg">Photo-URL</span>
+                <span className="label-text  text-white lg:text-lg">
+                  Photo-URL
+                </span>
               </label>
               <input
                 name="photo"
                 type="text"
                 placeholder="Photo-URL"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 {...register("photo")}
               />
             </div>
             <div className="form-control relative">
               <label className="label">
-                <span className="label-text lg:text-lg">Password</span>
+                <span className="label-text  text-white lg:text-lg">
+                  Password
+                </span>
               </label>
               <input
                 name="password"
                 type={showPass ? "text" : "password"}
                 placeholder="Password"
-                className="input input-bordered"
+                className="input input-bordered text-black"
                 {...register("password", { required: true })}
               />
               <div
-                className="absolute lg:left-[500px] lg:top-[60px] md:left-[500px]  left-[300px] top-[53px]"
+                className="absolute lg:left-[500px] lg:top-[60px] md:left-[500px] text-black left-[300px] top-[53px]"
                 onClick={() => setShowPass(!showPass)}
               >
                 {showPass ? <FaEyeSlash /> : <FaEye />}
@@ -183,7 +187,10 @@ const Register = () => {
                 {errors.password ? "" : registerError}
               </p>
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
+                <a
+                  href="#"
+                  className="label-text- text-white alt link link-hover"
+                >
                   Forgot password?
                 </a>
               </label>

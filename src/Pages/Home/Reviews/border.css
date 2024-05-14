@@ -1,0 +1,19 @@
+.border-gradient {
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-style: solid;
+  border-left: black;
+  border-radius: 10px;
+  border-image-source: linear-gradient(to left, #d400ff, #d400ff0a);
+}
+
+.border-gradient-right {
+  border: 10px solid;
+  border-image-slice: 1;
+  border-width: 2px;
+  border-style: solid;
+  border-right: black;
+  border-radius: 10px;
+  border-image-source: linear-gradient(to right, #d400ff, #d400ff0a);
+}

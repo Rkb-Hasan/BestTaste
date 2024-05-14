@@ -1,17 +1,17 @@
 const Opinion = () => {
   return (
     <div className="my-16">
-      <h2 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
         Opinion
       </h2>
-      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
-      <div className="flex flex-col  p-8 shadow-sm rounded-xl lg:p-12 bg-[#8E4585] bg-opacity-80 text-white">
+      <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
+      <div className="flex flex-col  p-8 shadow-sm rounded-xl lg:p-12 bg-gradient-to-r from-[#8A2BE24D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE20D] to-100% border-gradient-right text-white">
         <div className="flex flex-col items-center w-full">
-          <h2 className="lg:text-4xl text-3xl text-[#260d23] font-bold text-center">
+          <h2 className="lg:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
             Your opinion matters!
           </h2>
           <div className="flex flex-col items-center py-6 space-y-3">
-            <span className="text-center text-[#260d23] font-semibold lg:text-xl text-lg">
+            <span className="text-center text-[#8A2BE2] font-semibold lg:text-xl text-lg">
               How was your experience?
             </span>
             <div className="flex space-x-3">
@@ -95,7 +95,7 @@ const Opinion = () => {
             ></textarea>
             <button
               type="button"
-              className="py-4 font-bold my-8 lg:text-lg rounded-md text-white bg-[#260d23]"
+              className="py-4 font-bold my-8 lg:text-lg rounded-md text-white bg-[#8A2BE2]"
             >
               Leave feedback
             </button>
@@ -105,7 +105,7 @@ const Opinion = () => {
           <a
             rel="noopener noreferrer"
             href="#"
-            className="text-sm font-bold text-[#260d23]"
+            className="text-sm font-bold text-[#8A2BE2]"
           >
             Maybe later
           </a>

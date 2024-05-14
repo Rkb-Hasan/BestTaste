@@ -26,12 +26,12 @@ const TopFoods = () => {
     );
   return (
     <div className="mt-10">
-      <h2 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 lg:mb-4 mb-2 font-bold text-center">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] lg:mb-4 mb-2 font-bold text-center">
         Top Foods
       </h2>
-      <div className="divider bg-[#511b4b] m-0  lg:h-1 h-[2px]"></div>
+      <div className="divider bg-[#8A2BE2] m-0  lg:h-1 h-[2px]"></div>
       <div className="flex flex-col">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-[#581e53] bg-opacity-50 p-5 border rounded-2xl my-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-gradient-to-r from-[#8A2BE24D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE20D] to-100% border-gradient-right p-5 border rounded-2xl my-6">
           {topFoods.slice(0, 6).map((top) => (
             <TopFood key={top._id} top={top}></TopFood>
           ))}
@@ -39,7 +39,7 @@ const TopFoods = () => {
         <div>
           <Link to="/allFoods">
             {" "}
-            <button className="btn text-white bg-[#7D3C98] hover:bg-purple-600  font-bold w-full lg:text-lg">
+            <button className="btn text-white bg-[#8A2BE2] hover:bg-purple-600  font-bold w-full lg:text-lg">
               See All
             </button>
           </Link>

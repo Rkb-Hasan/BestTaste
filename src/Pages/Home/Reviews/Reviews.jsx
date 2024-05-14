@@ -1,23 +1,23 @@
 import man1 from "../../../assets/images/man1.jpg";
 import man2 from "../../../assets/images/man2.jpg";
 import man3 from "../../../assets/images/man3.jpg";
-
+import "./border.css";
 const Reviews = () => {
   return (
     <div className="mt-16">
       {" "}
-      <h2 className="lg:text-5xl md:text-4xl text-3xl text-purple-950 font-bold text-center">
+      <h2 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
         Reviews
       </h2>
-      <div className="divider bg-[#511b4b] lg:h-1 h-[2px]"></div>
-      <section className="bg-[#9A6CD4] rounded-2xl">
+      <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
+      <section className="bg-gradient-to-r from-[#8A2BE20D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE24D] to-100% border-gradient ">
         <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <h2 className="text-center text-4xl font-bold tracking-tight text-purple-950 sm:text-5xl">
+          <h2 className="text-center text-4xl font-bold tracking-tight text-[#8A2BE2] sm:text-5xl">
             Read trusted reviews from our customers
           </h2>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-            <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+          <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3 md:gap-8">
+            <blockquote className="rounded-lg bg-inherit p-6 shadow-sm sm:p-8">
               <div className="flex items-center gap-4">
                 <img
                   alt=""
@@ -69,13 +69,13 @@ const Reviews = () => {
                     </svg>
                   </div>
 
-                  <p className="mt-0.5 text-lg font-medium text-gray-900">
+                  <p className="mt-0.5 text-lg font-medium text-white">
                     Rakib Hasan
                   </p>
                 </div>
               </div>
 
-              <p className="mt-4 text-gray-700">
+              <p className="mt-4 text-[#FAFAFA]">
                 Exceptional! I've dined at many places, but none compare to the
                 exquisite experience offered here. Every bite is a symphony of
                 flavors, meticulously crafted to perfection. The ambiance,
@@ -84,7 +84,7 @@ const Reviews = () => {
               </p>
             </blockquote>
 
-            <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+            <blockquote className="rounded-lg bg-inherit p-6 shadow-sm sm:p-8">
               <div className="flex items-center gap-4">
                 <img
                   alt=""
@@ -136,22 +136,22 @@ const Reviews = () => {
                     </svg>
                   </div>
 
-                  <p className="mt-0.5 text-lg font-medium text-gray-900">
+                  <p className="mt-0.5 text-lg font-medium text-white">
                     Hasnat Tanveer
                   </p>
                 </div>
               </div>
 
-              <p className="mt-4 text-gray-700">
-                A gem in the heart of [City Name]! This restaurant exceeded all
-                my expectations. The menu boasts a delightful fusion of flavors,
+              <p className="mt-4 text-[#FAFAFA]">
+                A gem in the heart of Dhaka! This restaurant exceeded all my
+                expectations. The menu boasts a delightful fusion of flavors,
                 catering to diverse palates. The attention to detail is evident
                 in every dish, and the friendly staff add to the overall charm.
                 A culinary delight not to be missed!
               </p>
             </blockquote>
 
-            <blockquote className="rounded-lg bg-gray-50 p-6 shadow-sm sm:p-8">
+            <blockquote className="rounded-lg bg-inherit p-6 shadow-sm sm:p-8">
               <div className="flex items-center gap-4">
                 <img
                   alt=""
@@ -203,13 +203,13 @@ const Reviews = () => {
                     </svg>
                   </div>
 
-                  <p className="mt-0.5 text-lg font-medium text-gray-900">
+                  <p className="mt-0.5 text-lg font-medium text-white">
                     Nafiz Ahmed
                   </p>
                 </div>
               </div>
 
-              <p className="mt-4 text-gray-700">
+              <p className="mt-4 text-[#FAFAFA]">
                 A culinary oasis! From the moment you step through the doors,
                 you're greeted with warmth and aromas that transport you to food
                 heaven. Each dish tells a tale of passion and craftsmanship. An

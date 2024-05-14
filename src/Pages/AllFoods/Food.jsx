@@ -57,7 +57,7 @@ const Food = ({ food }) => {
 
       <div className="w-64 -mt-10 overflow-hidden bg-purple-950 rounded-lg shadow-lg  ">
         <div className="flex justify-center">
-          <h3 className="py-2  font-bold tracking-wide text-center text-gray-800 uppercase dark:text-white">
+          <h3 className="py-2  font-bold tracking-wide text-center text-gray-800  dark:text-white">
             {food_name}
           </h3>
           <span className="text-xs text-white">({food_category})</span>

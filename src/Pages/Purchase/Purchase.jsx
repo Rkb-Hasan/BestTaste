@@ -48,7 +48,7 @@ const Purchase = () => {
     const quantity = form.quantity.value;
     const buyerName = form.buyerName.value;
     const buyerEmail = form.buyerEmail.value;
-    const buyDate = form.buyDate.value;
+    const buyDate = new Date(Date.now()).toLocaleString();
 
     // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
@@ -168,8 +168,11 @@ const Purchase = () => {
             Purchase
           </h1>
         </div>
-        <div className="card shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl bg-base-100 pb-6 border-2">
-          <form onSubmit={handlePurchase} className="card-body pb-0">
+        <div className="card shrink-0 w-full md:min-w-[600px] min-w-[400px] hover:shadow-2xl bg-base-100   ">
+          <form
+            onSubmit={handlePurchase}
+            className="card-body   bg-violet-500 text-black text-opacity-70 border-2 border-purple-950 rounded-2xl   "
+          >
             <div className="form-control">
               <label className="label lg:text-xl text-lg font-bold">
                 <span className="label-text lg:text-lg">Food Name</span>
@@ -257,7 +260,7 @@ const Purchase = () => {
               />
             </div>
 
-            <div className="flex flex-col gap-2 ">
+            {/* <div className="flex flex-col gap-2 ">
               <label className="label lg:text-xl text-lg font-bold">
                 <span className="label-text lg:text-lg">Buying Date</span>
               </label>
@@ -270,20 +273,20 @@ const Purchase = () => {
                   hour: "2-digit",
                   minute: "2-digit",
                 })}
-              />
-              {/* <DatePicker
+              /> */}
+            {/* <DatePicker
                 name="buyDate"
                 required
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
                 className="border-2  focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"
               /> */}
-            </div>
+            {/* </div> */}
 
             <div className="form-control mt-6">
               <button
                 disabled={!quantity}
-                className="btn btn-primary font-bold lg:text-lg"
+                className="btn bg-purple-950 text-slate-300 hover:bg-purple-800 hover:text-gray-900 disabled:bg-slate-300 disabled:text-gray-500 font-bold lg:text-lg"
               >
                 Purchase
               </button>

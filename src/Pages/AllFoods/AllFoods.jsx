@@ -13,7 +13,7 @@ const AllFoods = () => {
   useEffect(() => {
     getData();
   }, []);
-  console.log(topFoods);
+  // console.log(topFoods);
 
   const getData = async () => {
     const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-foods`);
@@ -90,11 +90,11 @@ const AllFoods = () => {
           <input
             type="submit"
             value="Search"
-            className="btn btn-primary rounded-l-none font-bold lg:text-lg"
+            className="btn bg-violet-950 text-white hover:bg-violet-800  rounded-l-none font-bold lg:text-lg"
           />
         </form>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-4 md:gap-3 gap-2 bg-base-200 p-5 border rounded-2xl my-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 bg-[#581e53] bg-opacity-50 p-5 border rounded-2xl my-6">
           {topFoods.map((food) => (
             <Food key={food._id} food={food}></Food>
           ))}

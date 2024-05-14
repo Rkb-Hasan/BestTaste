@@ -8,11 +8,13 @@ const MyPurchases = () => {
   //   const [myPurchases, setmyPurchases] = useState([]);
 
   const { user } = useContext(AuthContext);
-  //   console.log(user);
+  // console.log(user.email);
 
   // fetch(`https://assignment-10-server-eight-opal.vercel.app/craft/?${queryParams}`)
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/purchase/${user?.email}`)
+    fetch(`${import.meta.env.VITE_API_URL}/purchase/${user?.email}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setMyPurchases(data);

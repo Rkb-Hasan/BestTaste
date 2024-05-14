@@ -79,7 +79,7 @@ const Gallery = () => {
         </h3>
       </div>
       {/* className=" " */}
-      <section className="py-6 dark:bg-gray-100 dark:text-gray-900 rounded-2xl border-4">
+      <section className="pt-6 dark:bg-gray-100 dark:text-gray-900 rounded-2xl border-4 flex flex-col ">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           {/* <img
             src="https://source.unsplash.com/random/301x301/"
@@ -108,93 +108,88 @@ const Gallery = () => {
               </figure> */}
               <div className="bg-slate-700 opacity-0 group-hover:opacity-95 duration-500 w-full p-4 h-full flex flex-col justify-center items-center ">
                 <div>
-                  <div className="bg-slate-950 p-4 border-2 border-slate-300 rounded-2xl">
-                    <h3 className="font-bold text-white text-xl text-left">
+                  <div className="bg-slate-950 md:p-4 p-2 border-2 border-slate-300 rounded-2xl">
+                    <h3 className="font-bold text-white lg:text-xl md:text-lg  text-left">
                       {galleryDoc.name}
                     </h3>
                     <div className="divider my-1 h-[1.5px] bg-white"></div>
-                    <h3 className="font-semibold text-gray-400  text-left">
+                    <h3 className="md:font-semibold text-gray-400  text-left">
                       {galleryDoc.feedback}
                     </h3>
-                    <Link
-                      to={{
-                        pathname: user ? "" : "/login",
-                      }}
-                      state={location.pathname}
-                    >
-                      <button
-                        onClick={() =>
-                          document.getElementById("my_modal_1").showModal()
-                        }
-                        className="btn mt-4  btn-primary  font-bold"
-                      >
-                        Add
-                      </button>
-                    </Link>
-                    <dialog id="my_modal_1" className="modal">
-                      <div className="modal-box">
-                        <form onSubmit={handleGallery}>
-                          <div className="form-control">
-                            <label className="label">
-                              <span className="label-text lg:text-lg">
-                                Name
-                              </span>
-                            </label>
-                            <input
-                              type="text"
-                              name="userName"
-                              value={user?.displayName}
-                              className="input input-bordered"
-                            />
-                          </div>
-                          <div className="form-control">
-                            <label className="label">
-                              <span className="label-text lg:text-lg">
-                                Image URL
-                              </span>
-                            </label>
-                            <input
-                              type="text"
-                              name="image_url"
-                              placeholder="Image URL..."
-                              className="input input-bordered"
-                            />
-                          </div>
-                          <div className="form-control">
-                            <label className="label">
-                              <span className="label-text lg:text-lg">
-                                feedback
-                              </span>
-                            </label>
-                            <input
-                              type="text"
-                              name="feedback"
-                              placeholder="feedback..."
-                              className="input input-bordered"
-                            />
-                          </div>
-                          <div className="form-control mt-6">
-                            <button className="btn btn-primary font-bold lg:text-lg">
-                              Add
-                            </button>
-                          </div>
-                        </form>
-                        <div className="modal-action">
-                          <form method="dialog">
-                            {/* if there is a button in form, it will close the modal */}
-                            <button className="btn btn-primary lg:text-lg">
-                              Close
-                            </button>
-                          </form>
-                        </div>
-                      </div>
-                    </dialog>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+        <div className="w-full p-4 pb-6">
+          <Link
+            to={{
+              pathname: user ? "" : "/login",
+            }}
+            state={location.pathname}
+            className="w-full"
+          >
+            <button
+              onClick={() => document.getElementById("my_modal_1").showModal()}
+              className="btn mt-4 w-full bg-purple-950 text-white hover:bg-purple-800 hover:text-slate-800 md:text-lg font-bold"
+            >
+              Add
+            </button>
+          </Link>
+        </div>
+        <dialog id="my_modal_1" className="modal">
+          <div className="modal-box">
+            <form onSubmit={handleGallery}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text lg:text-lg">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  value={user?.displayName}
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text lg:text-lg">Image URL</span>
+                </label>
+                <input
+                  type="text"
+                  name="image_url"
+                  placeholder="Image URL..."
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text lg:text-lg">feedback</span>
+                </label>
+                <input
+                  type="text"
+                  name="feedback"
+                  placeholder="feedback..."
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn bg-purple-950 text-white hover:bg-purple-800 hover:text-slate-800 font-bold lg:text-lg">
+                  Add
+                </button>
+              </div>
+            </form>
+            <div className="modal-action">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn bg-purple-950 text-white hover:bg-purple-800 hover:text-slate-800 lg:text-lg">
+                  Close
+                </button>
+              </form>
+            </div>
+          </div>
+        </dialog>
       </section>
     </div>
   );

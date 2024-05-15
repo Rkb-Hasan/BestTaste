@@ -71,7 +71,7 @@ const Purchase = () => {
     const checkDuplicate = purchased.find(
       (prchase) => prchase.foodName === food_name
     );
-    console.log(checkDuplicate);
+
     let itemFound = false;
     // if already exist the item don't add just update the quantity
     if (checkDuplicate) {

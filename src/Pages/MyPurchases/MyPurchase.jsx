@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet-async";
 
 const MyPurchase = ({ myPurchase, myPurchases, setMyPurchases }) => {
   const { _id, price, foodImage, foodName } = myPurchase;
-  console.log(myPurchase);
+
   const handleDelete = (_id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -21,7 +21,6 @@ const MyPurchase = ({ myPurchase, myPurchases, setMyPurchases }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

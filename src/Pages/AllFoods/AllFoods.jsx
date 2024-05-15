@@ -28,7 +28,6 @@ const AllFoods = () => {
     const foodQuery = {
       foodName,
     };
-    console.log(foodQuery);
 
     fetch(
       `${import.meta.env.VITE_API_URL}/searchFood?foodName=${
@@ -37,7 +36,6 @@ const AllFoods = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.length);
         if (data.length === 0) {
           setErrState(true);
           setErrMessage(
@@ -51,7 +49,7 @@ const AllFoods = () => {
       });
     form.reset();
   };
-  console.log(errState, errMessage);
+
   return (
     <div>
       <Helmet>

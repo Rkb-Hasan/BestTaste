@@ -13,7 +13,6 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log(location);
   const {
     register,
     handleSubmit,
@@ -51,7 +50,6 @@ const Login = () => {
   const handleGoogle = async () => {
     try {
       const result = await googleSignIn();
-      console.log(result.user);
 
       const { data } = await axios.post(
         `${import.meta.env.VITE_API_URL}/jwt`,
@@ -69,26 +67,6 @@ const Login = () => {
       toast.error(err?.message);
     }
   };
-
-  //   try {
-  //     const result = await githubSignIn();
-  //     console.log(result.user);
-
-  //     const { data } = await axios.post(
-  //       `${import.meta.env.VITE_API_URL}/jwt`,
-  //       {
-  //         email: result?.user?.email,
-  //       },
-  //       { withCredentials: true }
-  //     );
-  //     console.log(data);
-  //     toast.success("Signin Successful");
-  //     navigate(location?.state ? location.state : "/");
-  //   } catch (err) {
-  //     console.log(err);
-  //     toast.error(err?.message);
-  //   }
-  // };
 
   return (
     <div className="hero animate__animated animate__pulse">

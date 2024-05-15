@@ -21,7 +21,6 @@ const MyFood = ({ myFood, myFoods, setMyFoods }) => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.deletedCount) {
               Swal.fire({
                 title: "Deleted!",

@@ -5,13 +5,11 @@ import MyPurchase from "./MyPurchase";
 
 const MyPurchases = () => {
   const [myPurchases, setMyPurchases] = useState([]);
-  //   const [myPurchases, setmyPurchases] = useState([]);
+
   const [errMessage, setErrMessage] = useState("");
   const [errState, setErrState] = useState(false);
   const { user, loading } = useContext(AuthContext);
-  // console.log(user.email);
 
-  // fetch(`https://assignment-10-server-eight-opal.vercel.app/craft/?${queryParams}`)
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/purchase/${user?.email}`, {
       credentials: "include",
@@ -24,7 +22,6 @@ const MyPurchases = () => {
         } else {
           setMyPurchases(data);
         }
-        // console.log(data);
       });
   }, [user?.email]);
 

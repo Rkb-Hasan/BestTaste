@@ -31,7 +31,7 @@ const Gallery = () => {
       feedback,
       image_url,
     };
-    console.log(galleryDoc);
+
     // send to server
     fetch(`${import.meta.env.VITE_API_URL}/galleryDoc`, {
       method: "POST",
@@ -43,7 +43,6 @@ const Gallery = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          console.log(data);
           Swal.fire({
             title: "Success!",
             text: "Gallery Doc added",

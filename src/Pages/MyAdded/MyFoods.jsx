@@ -22,7 +22,6 @@ const MyFoods = () => {
           setErrMessage("No Items are added by you!!");
         } else {
           setMyFoods(data);
-          console.log(data);
         }
       });
   }, [user?.email]);

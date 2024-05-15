@@ -46,7 +46,7 @@ const Login = () => {
     }
     reset();
   };
-
+  // google sign-in
   const handleGoogle = async () => {
     try {
       const result = await googleSignIn();

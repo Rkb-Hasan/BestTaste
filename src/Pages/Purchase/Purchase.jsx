@@ -73,7 +73,7 @@ const Purchase = () => {
     );
 
     let itemFound = false;
-    // if already exist the item don't add just update the quantity
+    // if already exist the item don't add just update the quantity in server
     if (checkDuplicate) {
       fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
         method: "PATCH",

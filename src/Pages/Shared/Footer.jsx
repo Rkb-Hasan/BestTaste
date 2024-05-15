@@ -297,7 +297,7 @@ const Footer = () => {
                       </svg>
 
                       <span className="flex-1 text-[#FAFAFA]">
-                        john@doe.com
+                        Rakib@Hasan.com
                       </span>
                     </a>
                   </li>
@@ -348,7 +348,7 @@ const Footer = () => {
                     </svg>
 
                     <address className="-mt-0.5 flex-1 not-italic text-[#FAFAFA]">
-                      213 Lane, London, United Kingdom
+                      Mirpur,Dhaka,Bangladesh.
                     </address>
                   </li>
                 </ul>

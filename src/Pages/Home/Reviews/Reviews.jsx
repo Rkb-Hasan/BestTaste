@@ -12,7 +12,7 @@ const Reviews = () => {
       <div className="divider bg-[#8A2BE2] lg:h-1 h-[2px]"></div>
       <section className="bg-gradient-to-r from-[#8A2BE20D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE24D] to-100% border-gradient ">
         <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
-          <h2 className="text-center text-4xl font-bold tracking-tight text-[#8A2BE2] sm:text-5xl">
+          <h2 className="text-center lg:text-4xl md:text-3xl text-2xl font-bold tracking-tight text-[#8A2BE2] sm:text-5xl">
             Read trusted reviews from our customers
           </h2>
 

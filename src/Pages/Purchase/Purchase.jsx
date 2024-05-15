@@ -1,19 +1,17 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-// import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Helmet } from "react-helmet-async";
-// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 
 const Purchase = () => {
   const food = useLoaderData();
   const { _id, food_name, price, quantity, food_image, userEmail } = food;
-  // console.log(food);
+
   const { user } = useContext(AuthContext);
-  // const [startDate, setStartDate] = useState(new Date().toLocaleString());
+
   const [purchased, setPurchased] = useState([]);
 
   const navigate = useNavigate();
@@ -34,7 +32,6 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((data) => {
         setPurchased(data);
-        // console.log(data);
       });
   }, [quantity, user?.email]);
 
@@ -50,8 +47,6 @@ const Purchase = () => {
     const buyerEmail = form.buyerEmail.value;
     const buyDate = new Date(Date.now()).toLocaleString();
 
-    // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
-
     const purchasedFood = {
       foodName,
       foodImage,
@@ -61,7 +56,6 @@ const Purchase = () => {
       buyerEmail,
       buyDate,
     };
-    // console.log(purchasedFood);
 
     // validate user
     if (buyerEmail === userEmail) {
@@ -91,7 +85,6 @@ const Purchase = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.modifiedCount) {
-            console.log(data);
             Swal.fire({
               title: "Success!",
               text: "Updated the previous order for this food!!",
@@ -99,12 +92,12 @@ const Purchase = () => {
               confirmButtonText: "OK",
             });
           }
-          // console.log(data);
+
           navigate("/");
         });
       itemFound = true;
     }
-    // console.log(itemFound);
+
     if (!itemFound) {
       // else send to server
       // send to purchase collection
@@ -130,7 +123,7 @@ const Purchase = () => {
         });
     }
     // update the purchase and new product quantity value in the foods collection
-    // !checkDuplicate &&
+
     if (!itemFound) {
       fetch(`${import.meta.env.VITE_API_URL}/updatePurchaseQuantity/${_id}`, {
         method: "PATCH",
@@ -145,17 +138,6 @@ const Purchase = () => {
         });
     }
   };
-  // const handleValue = (e) => {
-  //   const val = e.target.value;
-  //   if (val === 30) {
-  //     Swal.fire({
-  //       title: "Opps!",
-  //       text: "Cant buy more!!",
-  //       icon: "error",
-  //       confirmButtonText: "OK",
-  //     });
-  //   }
-  // };
 
   return (
     <div className="hero">

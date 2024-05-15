@@ -39,61 +39,10 @@ const MyPurchase = ({ myPurchase, myPurchases, setMyPurchases }) => {
   };
 
   return (
-    // <div className="card pb-2  bg-base-200 hover:shadow-xl">
-    //   <Helmet>
-    //     <title>My Purchase</title>
-    //   </Helmet>
-    //   <figure>
-    //     <img src={foodImage} alt={foodName} className=" lg:h-[280px]" />
-    //   </figure>
-
-    //   <div className="p-2 space-y-2">
-    //     <div className="flex gap-1">
-    //       <h2 className="card-title font-bold">{foodName}</h2>
-    //     </div>
-    //     <div className="flex items-center gap-2">
-    //       <p className="text-green-500">
-    //         <span className="font-bold text-red-500">Price</span> :{" "}
-    //         <span className="font-semibold">{price}</span>
-    //       </p>{" "}
-    //     </div>
-    //     {/* <div>
-    //       <p className="text-green-500">
-    //         <span className="font-bold text-orange-500">Processing Time</span> :{" "}
-    //         <span className="font-semibold">#{processingTime}</span>
-    //       </p>{" "}
-    //     </div> */}
-    //     {/* <div>
-    //         <p className="flex gap-2 items-center text-xs font-bold">
-    //           <span className="text-base"> Facilities : </span>
-    //           <span className="bg-green-500 bg-opacity-10 p-1 rounded-lg">
-    //             #{}
-    //           </span>
-    //           <span className="bg-red-500 bg-opacity-10 p-1 rounded-lg">#{}</span>
-    //           <span className="bg-yellow-500 bg-opacity-10 p-1 rounded-lg">
-    //             #{}
-    //           </span>
-    //         </p>
-    //       </div> */}
-
-    //     <div>
-    //       {/* <Link to={`/updateFood/${_id}`}>
-    //         <button className=" btn w-full  bg-purple-500 font-bold text-lg ">
-    //           Update
-    //         </button>
-    //       </Link> */}
-    //       <Link>
-    //         <button
-    //           onClick={() => handleDelete(_id)}
-    //           className=" btn w-full bg-red-500 font-bold text-lg "
-    //         >
-    //           Delete
-    //         </button>
-    //       </Link>
-    //     </div>
-    //   </div>
-    // </div>
     <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
+      <Helmet>
+        <title>Best Taste|My Purchase</title>
+      </Helmet>
       <div
         className="w-full h-64 bg-gray-300 bg-center bg-cover rounded-lg shadow-md"
         style={{

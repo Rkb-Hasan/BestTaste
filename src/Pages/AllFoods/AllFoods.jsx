@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Food from "./Food";
-import { useForm } from "react-hook-form";
 import bgImg from "../../assets/images/allbgjpg.jpg";
 import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 
 const AllFoods = () => {
-  const { reset } = useForm();
-
-  // const { user } = useContext(AuthContext);
   const [topFoods, setTopFoods] = useState([]);
   const [errMessage, setErrMessage] = useState("");
   const [errState, setErrState] = useState(false);
+  const { loading } = useContext(AuthContext);
 
   useEffect(() => {
     getData();
   }, []);
-  // console.log(topFoods);
 
   const getData = async () => {
     const { data } = await axios(`${import.meta.env.VITE_API_URL}/all-foods`);
@@ -42,25 +39,23 @@ const AllFoods = () => {
       .then((data) => {
         console.log(data.length);
         if (data.length === 0) {
-          // setErrState(true);
+          setErrState(true);
           setErrMessage(
             "No Item found with this name!! Please try again with a valid one!"
           );
+        } else {
+          setTopFoods(data);
+          setErrMessage("");
+          setErrState(false);
         }
-        setTopFoods(data);
-        setErrMessage("");
       });
     form.reset();
   };
   console.log(errState, errMessage);
   return (
     <div>
-      {/* <h2 className="lg:text-3xl md:text-2xl text-xl font-bold text-center">
-        All Foods
-      </h2>
-      <div className="divider"></div> */}
       <Helmet>
-        <title>All Foods</title>
+        <title>Best Taste|All Foods</title>
       </Helmet>
       <div
         className="w-full bg-center bg-cover h-[25rem]   rounded-2xl"
@@ -107,10 +102,15 @@ const AllFoods = () => {
           />
         </form>
 
-        {errMessage ? (
+        {errState ? (
           <p className="text-red-500 font-bold text-center w-full">
             {errMessage}
           </p>
+        ) : loading ? (
+          <div className="text-center mr-10">
+            {" "}
+            <span className="loading loading-spinner loading-md text-white"></span>
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4  bg-gradient-to-r from-[#8A2BE24D] from-0% via-[#8A2BE219] via-50% to-[#8A2BE20D] to-100% border-gradient-right p-5  rounded-2xl my-6">
             {topFoods.map((food) => (

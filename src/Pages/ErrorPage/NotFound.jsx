@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-// import "animate.css";
+
 const NotFound = () => {
   return (
     <section className="flex items-center h-full p-16  ">

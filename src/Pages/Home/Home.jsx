@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Helmet>
-        <title>Home</title>
+        <title>Best Taste|Home</title>
       </Helmet>
       <Banner></Banner>
       <TopFoods></TopFoods>

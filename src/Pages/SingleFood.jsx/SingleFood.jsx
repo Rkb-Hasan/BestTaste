@@ -17,7 +17,7 @@ const SingleFood = () => {
   return (
     <section>
       <Helmet>
-        <title>single Food</title>
+        <title>Best Taste|Single Food</title>
       </Helmet>
       <div className="bg-[#8A2BE2] bg-opacity-10">
         <div className="container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 text-gray-50">

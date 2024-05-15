@@ -5,7 +5,6 @@ export default {
     extend: {
       fontFamily: {
         Permanent: '"Permanent Marker", cursive',
-        poppins: '"Poppins", sans-serif',
         exo: '"Exo", sans-serif',
       },
       borderImage: {

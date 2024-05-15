@@ -1,15 +1,8 @@
-// import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-// import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
-// import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
-
 const UpdateFood = () => {
-  //   const { user } = useContext(AuthContext);
-  //   const { email } = user;
-  // const { reset } = useForm();
   const food = useLoaderData();
   const navigate = useNavigate();
 
@@ -22,7 +15,7 @@ const UpdateFood = () => {
     quantity,
     description,
   } = food;
-  // console.log(food);
+
   const handleUpdateFood = (e) => {
     e.preventDefault();
 
@@ -33,8 +26,6 @@ const UpdateFood = () => {
     const food_image = form.updatedFoodImage.value;
     const quantity = form.updatedQuantity.value;
     const description = form.updatedShortDescription.value;
-
-    // https://i.ibb.co/1RM7C7J/7-01-1024x683.jpg
 
     const updatedFood = {
       food_name,
@@ -84,7 +75,7 @@ const UpdateFood = () => {
   return (
     <div>
       <Helmet>
-        <title>Update Food</title>
+        <title>Best Taste|Update Food</title>
       </Helmet>
       <h3 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
         Update Food
@@ -177,9 +168,10 @@ const UpdateFood = () => {
               </label>
               <br />
               <input
-                type="text"
+                type="number"
                 name="updatedPrice"
                 defaultValue={price}
+                min={1}
                 required
                 placeholder="Price.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"

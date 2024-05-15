@@ -10,7 +10,6 @@ const TopFoods = () => {
   useEffect(() => {
     getData();
   }, []);
-  // console.log(topFoods);
 
   const getData = async () => {
     const { data } = await axios(`${import.meta.env.VITE_API_URL}/top-foods`);

@@ -69,7 +69,7 @@ const AddFood = () => {
   return (
     <div>
       <Helmet>
-        <title>Add Food</title>
+        <title>Best Taste|Add Food</title>
       </Helmet>
       <h3 className="lg:text-5xl md:text-4xl text-3xl text-[#8A2BE2] font-bold text-center">
         Add Food
@@ -174,6 +174,7 @@ const AddFood = () => {
               <input
                 type="number"
                 name="price"
+                min={1}
                 required
                 placeholder="Price.."
                 className=" border-2 focus:ring lg:p-4 p-2 rounded-lg w-full lg:text-lg"

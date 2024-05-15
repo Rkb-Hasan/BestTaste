@@ -1,5 +1,4 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
@@ -10,11 +9,10 @@ import "animate.css";
 import axios from "axios";
 
 const Login = () => {
-  const { logIn, googleSignIn, githubSignIn, setLoading } =
-    useContext(AuthContext);
+  const { logIn, googleSignIn, setLoading } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  // const { from } = location.state || { from: { pathname: "/" } };
+
   console.log(location);
   const {
     register,
@@ -25,7 +23,7 @@ const Login = () => {
 
   const onSubmit = async (userData) => {
     const { email, password } = userData;
-    // console.log(userData);
+
     try {
       //User Login
       const result = await logIn(email, password);
@@ -41,6 +39,7 @@ const Login = () => {
 
       toast.success("Signin Successful");
       navigate(location?.state ? location.state : "/");
+      window.location.reload();
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
@@ -64,13 +63,13 @@ const Login = () => {
       console.log(data);
       toast.success("Signin Successful");
       navigate(location?.state ? location.state : "/");
+      window.location.reload();
     } catch (err) {
       console.log(err);
       toast.error(err?.message);
     }
   };
 
-  // const handleGithub = async () => {
   //   try {
   //     const result = await githubSignIn();
   //     console.log(result.user);
@@ -94,7 +93,7 @@ const Login = () => {
   return (
     <div className="hero animate__animated animate__pulse">
       <Helmet>
-        <title>Login</title>
+        <title>Best Taste|Login</title>
       </Helmet>
 
       <div className="hero-content flex-col ">

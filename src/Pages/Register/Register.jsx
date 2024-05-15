@@ -37,37 +37,6 @@ const Register = () => {
       return;
     }
 
-    // createUser;
-    //   createUser(email, password)
-    //     .then(async (result) => {
-    //       await updateProfile(result.user, {
-    //         displayName: name,
-    //         photoURL: photo,
-    //       })
-    //         .then(setUser(result.user))
-    //         // send the user to database
-    //         .then(
-    //           fetch(`${import.meta.env.VITE_API_URL}/users`, {
-    //             method: "POST",
-    //             headers: {
-    //               "content-type": "application/json",
-    //             },
-    //             body: JSON.stringify(user),
-    //           })
-    //         )
-    //         .then(logOut())
-
-    //         .catch((error) => console.log(error));
-
-    //       toast.success("User created successfully!!");
-    //       reset();
-    //       navigate("/login");
-    //     })
-    //     .catch((error) => {
-    //       toast.error(error.message.slice(10));
-    //       setLoading(false);
-    //     });
-
     createUser(email, password)
       .then(async (result) => {
         try {
@@ -95,6 +64,7 @@ const Register = () => {
           toast.success("User created successfully!!");
           reset();
           navigate("/login");
+          window.location.reload();
         } catch (error) {
           console.log(error);
           toast.error(error.message.slice(10));
@@ -110,7 +80,7 @@ const Register = () => {
   return (
     <div className="hero   ">
       <Helmet>
-        <title>Register</title>
+        <title>Best Taste|Register</title>
       </Helmet>
       <div className="hero-content flex-col animate__animated animate__pulse">
         <div className="text-center ">

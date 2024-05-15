@@ -35,7 +35,7 @@ const UpdateFood = () => {
       quantity,
       description,
     };
-
+    // update the food
     fetch(
       `${import.meta.env.VITE_API_URL}/updateFood/${_id}`,
 

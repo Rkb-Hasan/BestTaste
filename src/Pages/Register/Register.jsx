@@ -40,7 +40,7 @@ const Register = () => {
     createUser(email, password)
       .then(async (result) => {
         try {
-          // Update user profile
+          // Update user profile to show name and photo
           await updateProfile(result.user, {
             displayName: name,
             photoURL: photo,

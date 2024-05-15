@@ -42,7 +42,7 @@ const AddFood = () => {
       userEmail,
     };
 
-    // send to server
+    // send to server side
     fetch(`${import.meta.env.VITE_API_URL}/foods`, {
       method: "POST",
       headers: {

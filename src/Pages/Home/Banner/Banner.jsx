@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import bg1 from "../../../assets/images/carousel1.jpg";
 import bg2 from "../../../assets/images/carousel2.jpg";
 import bg3 from "../../../assets/images/carousel3.jpg";
-
+import ScrollAnimation from "react-animate-on-scroll";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import Slide from "./Slide";
